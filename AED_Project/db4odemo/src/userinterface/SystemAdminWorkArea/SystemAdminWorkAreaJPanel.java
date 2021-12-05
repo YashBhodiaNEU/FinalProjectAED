@@ -35,6 +35,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
+        this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
+        this.federalGovernmentDirectory = federalGovernmentDirectory;
+        System.out.println(federalGovernmentDirectory);
         populateTree();
     }
     
@@ -159,6 +162,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageFederalGovernmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFederalGovernmentActionPerformed
         // TODO add your handling code here:
+    System.out.println(federalGovernmentDirectory);
     ManageAllFederalGovernments mafg = new ManageAllFederalGovernments(userProcessContainer, ecosystem, federalGovernmentDirectory);
     userProcessContainer.add("ManageAllFederalGovernments",mafg);
     CardLayout layout=(CardLayout)userProcessContainer.getLayout();

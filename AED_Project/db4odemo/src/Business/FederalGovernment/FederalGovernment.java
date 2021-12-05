@@ -47,4 +47,9 @@ public class FederalGovernment {
     public void setCurrentStock(double currentStock) {
         this.currentStock = currentStock;
     }  
+    
+    @Override
+    public String toString(){
+        return fedName;
+    }
 }
