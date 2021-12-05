@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package Business;
-
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.StateGovernment.StateGovernmentDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.util.ArrayList;
 
@@ -20,10 +20,23 @@ public class EcoSystem extends Organization{
     private static EcoSystem business;
     private VaccineManufacturerDirectory vaccineManufacturerDirectory;
     private FederalGovernmentDirectory federalGovernmentDirectory;
+    private StateGovernmentDirectory stateGovernmentDirectory;
 
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory) {
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
+        this.stateGovernmentDirectory = stateGovernmentDirectory;
+    }
+
+    public StateGovernmentDirectory getStateGovernmentDirectory() {
+        if (stateGovernmentDirectory == null){
+            stateGovernmentDirectory = new StateGovernmentDirectory();
+        }
+        return stateGovernmentDirectory;
+    }
+
+    public void setStateGovernmentDirectory(StateGovernmentDirectory stateGovernmentDirectory) {
+        this.stateGovernmentDirectory = stateGovernmentDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -73,6 +86,7 @@ public class EcoSystem extends Organization{
        // networkList=new ArrayList<Network>();
        vaccineManufacturerDirectory = new VaccineManufacturerDirectory();
        federalGovernmentDirectory = new FederalGovernmentDirectory();
+       stateGovernmentDirectory = new StateGovernmentDirectory();
     }
 
     

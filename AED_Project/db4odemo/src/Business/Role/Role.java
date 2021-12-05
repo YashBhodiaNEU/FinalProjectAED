@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 
 import Business.Organization;
+import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import javax.swing.JPanel;
@@ -51,7 +52,8 @@ public abstract class Role {
             UserAccount account,  
             EcoSystem business,
             VaccineManufacturerDirectory vaccineManufacturerDirectory,
-            FederalGovernmentDirectory federalGovernmentDirectory);
+            FederalGovernmentDirectory federalGovernmentDirectory,
+            StateGovernmentDirectory stateGovernmentDirectory);
 
     @Override
     public String toString() {
