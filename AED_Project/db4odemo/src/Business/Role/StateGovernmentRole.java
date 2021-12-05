@@ -11,14 +11,16 @@ import Business.UserAccount.UserAccount;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import javax.swing.JPanel;
 import userinterface.FederalGovernment.FederalGovernmentWorkArea;
+import userinterface.StateGovernment.StateGovernmentWorkArea;
 
 /**
  *
  * @author Karan
  */
-public class FederalGovernmentRole extends Role{
+public class StateGovernmentRole extends Role {
+    
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory){
-        return new FederalGovernmentWorkArea(userProcessContainer, account, ecosystem, federalGovernmentDirectory, vaccineManufacturerDirectory, stateGovernmentDirectory);
-    }
+        return new StateGovernmentWorkArea(userProcessContainer, account, ecosystem, federalGovernmentDirectory, vaccineManufacturerDirectory, stateGovernmentDirectory);
+    }      
 }

@@ -7,7 +7,8 @@ package userinterface.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernment;
 import Business.FederalGovernment.FederalGovernmentDirectory;
-import Business.VaccineManufacturer.VaccineManufacturer;
+import Business.StateGovernment.StateGovernment;
+import Business.StateGovernment.StateGovernmentDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -16,20 +17,21 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Karan
  */
-public class ManageAllFederalGovernments extends javax.swing.JPanel {
+public class ManageAllStateGovernments extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageAllFederalGovernments
+     * Creates new form ManageAllStateGovernments
      */
+    
     private JPanel userProcessContainer;
     private EcoSystem ecosystem;
-    private FederalGovernmentDirectory federalGovernmentDirectory;
+    private StateGovernmentDirectory stateGovernmentDirectory;
     
-    public ManageAllFederalGovernments(JPanel userProcessContainer, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory) {
+    public ManageAllStateGovernments(JPanel userProcessContainer, EcoSystem ecosystem, StateGovernmentDirectory stateGovernmentDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
-        this.federalGovernmentDirectory = ecosystem.getFederalGovernmentDirectory();
+        this.stateGovernmentDirectory = ecosystem.getStateGovernmentDirectory();
         populateTable();
     }
 
@@ -44,42 +46,42 @@ public class ManageAllFederalGovernments extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblFederalGovernment = new javax.swing.JTable();
+        tblStateGovernment = new javax.swing.JTable();
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        jLabel1.setText("Manage All Federal Governments");
+        jLabel1.setText("Manage All State Governments");
 
-        tblFederalGovernment.setModel(new javax.swing.table.DefaultTableModel(
+        tblStateGovernment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Name", "Address", "Current Stock"
+                "State Name", "State Reserve Address", "Country Name", "Vaccine Stocks"
             }
         ));
-        jScrollPane1.setViewportView(tblFederalGovernment);
+        jScrollPane1.setViewportView(tblStateGovernment);
 
-        btnCreate.setText("Create Federal Govrnment");
+        btnCreate.setText("Create State Govrnment");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
 
-        btnUpdate.setText("Update Federal Governmet");
+        btnUpdate.setText("Update State Governmet");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
-        btnDelete.setText("Delete Federal Government");
+        btnDelete.setText("Delete State Government");
 
         btnBack.setText("Back");
 
@@ -88,58 +90,61 @@ public class ManageAllFederalGovernments extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnCreate)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnBack))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(107, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 376, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnBack))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCreate)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 64, Short.MAX_VALUE)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreate)
                     .addComponent(btnBack))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUpdate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDelete)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
+
     public void populateTable(){
-        DefaultTableModel dtm = (DefaultTableModel) tblFederalGovernment.getModel();
+        DefaultTableModel dtm = (DefaultTableModel)tblStateGovernment.getModel();
         dtm.setRowCount(0);
-        for(FederalGovernment fg : ecosystem.getFederalGovernmentDirectory().getFederalGovernmentDirectory()){
-            Object [] row = new Object[3];
-            row[0] = fg;
-            row[1] = fg.getFedReserveAddress();
-            row[2] = fg.getCurrentStock();
+        for(StateGovernment sg : ecosystem.getStateGovernmentDirectory().getStateGovernmentDirectory()){
+            Object [] row = new Object[4];
+            row[0] = sg;
+            row[1] = sg.getStateReserveAddress();
+            row[2] = sg.getFedName();
+            row[3] = sg.getCurrentStock();
             dtm.addRow(row);
         }
     }
     
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        CreateFederalGovernment create = new CreateFederalGovernment(userProcessContainer, ecosystem, federalGovernmentDirectory);
+        CreateStateGovernment create = new CreateStateGovernment(userProcessContainer, ecosystem, stateGovernmentDirectory);
         userProcessContainer.add("CreateNewFederalGovernment",create);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -157,6 +162,6 @@ public class ManageAllFederalGovernments extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblFederalGovernment;
+    private javax.swing.JTable tblStateGovernment;
     // End of variables declaration//GEN-END:variables
 }
