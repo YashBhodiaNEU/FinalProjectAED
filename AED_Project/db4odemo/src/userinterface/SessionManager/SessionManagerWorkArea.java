@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Karan
+ * @author yashb
  */
 public class SessionManagerWorkArea extends javax.swing.JPanel {
 
