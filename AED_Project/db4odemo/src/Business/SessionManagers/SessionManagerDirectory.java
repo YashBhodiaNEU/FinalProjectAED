@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Karan
+ * @author yashb
  */
 public class SessionManagerDirectory {
     
