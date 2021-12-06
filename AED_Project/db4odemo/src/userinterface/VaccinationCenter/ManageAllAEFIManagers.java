@@ -4,41 +4,33 @@
  */
 package userinterface.VaccinationCenter;
 
+import Business.AEFIManager.AEFIManager;
+import Business.AEFIManager.AEFIManagerDirectory;
 import Business.EcoSystem;
-import Business.SessionManagers.SessionManager;
-import Business.SessionManagers.SessionManagerDirectory;
 import Business.UserAccount.UserAccount;
-import Business.VaccinationCenter.VaccinationCenterDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import userinterface.StateGovernment.CreateVaccinationCenter;
 
 /**
  *
  * @author Karan
  */
-public class ManageAllSessionManagers extends javax.swing.JPanel {
+public class ManageAllAEFIManagers extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageAllSessionManagers
+     * Creates new form ManageAllAEFIManagers
      */
-    
     private JPanel userProcessContainer;
     private EcoSystem ecosystem;
-<<<<<<< HEAD
-    private SessionManagerDirectory sessionManagerDirectory;
     private UserAccount userAccount;
-=======
-    private UserAccount userAccount;
-    private SessionManagerDirectory sessionManagerDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+    private AEFIManagerDirectory aefiManagerDirectory;
     
-    public ManageAllSessionManagers(JPanel userProcessContainer,EcoSystem ecosystem, SessionManagerDirectory sessionManagerDirectory,UserAccount userAccount) {
+    public ManageAllAEFIManagers(JPanel userProcessContainer,EcoSystem ecosystem, AEFIManagerDirectory aefiManagerDirectory,UserAccount userAccount) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
-        this.sessionManagerDirectory = ecosystem.getSessionManagerDirectory();
+        this.aefiManagerDirectory = ecosystem.getAefiManagerDirectory();
         this.userAccount = userAccount;
         populateTable();
     }
@@ -54,15 +46,15 @@ public class ManageAllSessionManagers extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblSessionManager = new javax.swing.JTable();
+        tblAEFIManager = new javax.swing.JTable();
         btnCreate = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        jLabel1.setText("Manage Session managers");
+        jLabel1.setText("ManageAEFI Managers");
 
-        tblSessionManager.setModel(new javax.swing.table.DefaultTableModel(
+        tblAEFIManager.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -70,10 +62,10 @@ public class ManageAllSessionManagers extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Session Manager name", "Session Manager Email"
+                "AEFI Manager Name", "AEFI Manager Contact"
             }
         ));
-        jScrollPane1.setViewportView(tblSessionManager);
+        jScrollPane1.setViewportView(tblAEFIManager);
 
         btnCreate.setText("Create");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -93,29 +85,30 @@ public class ManageAllSessionManagers extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(btnCreate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton4))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -125,31 +118,32 @@ public class ManageAllSessionManagers extends javax.swing.JPanel {
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     public void populateTable(){
-        DefaultTableModel dtm = (DefaultTableModel) tblSessionManager.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) tblAEFIManager.getModel();
         dtm.setRowCount(0);
-        for(SessionManager sm : ecosystem.getSessionManagerDirectory().getSessionManagerDirectory()){
-            System.out.println(userAccount.getEmployee().getName());
-            System.out.println(sm.getCenterName());
+        for(AEFIManager sm : ecosystem.getAefiManagerDirectory().getAefiManagerDirectory()){
+            //System.out.println(userAccount.getEmployee().getName());
+            //System.out.println(sm.getCenterName());
             if(userAccount.getEmployee().getName().equalsIgnoreCase(sm.getCenterName())){
             Object [] row = new Object[2];
             row[0] = sm;
-            row[1] = sm.getManagerEmailID();
+            row[1] = sm.getAefimanagerEmailID();
             dtm.addRow(row);
         }
       }
  }
     
+    
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        CreateSessionManager create = new CreateSessionManager(userProcessContainer, ecosystem, sessionManagerDirectory, userAccount);
-        userProcessContainer.add("CreateVaccinationSessionManager",create);
+        CreateAEFIManager create = new CreateAEFIManager(userProcessContainer, ecosystem, aefiManagerDirectory, userAccount);
+        userProcessContainer.add("CreateAEFIManager",create);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer); 
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
 
@@ -160,6 +154,6 @@ public class ManageAllSessionManagers extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblSessionManager;
+    private javax.swing.JTable tblAEFIManager;
     // End of variables declaration//GEN-END:variables
 }
