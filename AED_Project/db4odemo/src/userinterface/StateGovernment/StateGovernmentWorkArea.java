@@ -4,11 +4,14 @@
  */
 package userinterface.StateGovernment;
 
+import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
+import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -20,8 +23,17 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form StateGovernmentWorkArea
      */
-    public StateGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory) {
-        initComponents();
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    VaccinationCenterDirectory vaccinationCenterDirectory;
+    UserAccount userAccount;
+    
+    public StateGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory) {
+    initComponents();
+    this.userProcessContainer = userProcessContainer;
+    this.ecosystem = ecosystem;
+    this.userAccount = account;
+    this.vaccinationCenterDirectory = vaccinationCenterDirectory;
     }
 
     /**
@@ -34,29 +46,50 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        btnManageVaccinationCenters = new javax.swing.JButton();
 
         jLabel1.setText("State Government Admin Role");
+
+        btnManageVaccinationCenters.setText("Manage Vaccination Centers");
+        btnManageVaccinationCenters.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageVaccinationCentersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabel1)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnManageVaccinationCenters))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnManageVaccinationCenters)
+                .addContainerGap(241, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnManageVaccinationCentersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageVaccinationCentersActionPerformed
+        // TODO add your handling code here:
+    ManageAllVaccinationCenters mavc = new ManageAllVaccinationCenters(userProcessContainer, ecosystem, vaccinationCenterDirectory, userAccount);
+    userProcessContainer.add("ManageAllVaccinationCenters",mavc);
+    CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+    layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageVaccinationCentersActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnManageVaccinationCenters;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package Business;
+import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.StateGovernment.StateGovernmentDirectory;
+import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.util.ArrayList;
 
@@ -21,13 +23,41 @@ public class EcoSystem extends Organization{
     private VaccineManufacturerDirectory vaccineManufacturerDirectory;
     private FederalGovernmentDirectory federalGovernmentDirectory;
     private StateGovernmentDirectory stateGovernmentDirectory;
+    private ColdChainSupplierDirectory coldChainSupplierDirectory;
+    private VaccinationCenterDirectory vaccinationCenterDirectory;
 
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory) {
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
         this.stateGovernmentDirectory = stateGovernmentDirectory;
+        this.coldChainSupplierDirectory = coldChainSupplierDirectory;
+        this.vaccinationCenterDirectory = vaccinationCenterDirectory;
     }
 
+    public VaccinationCenterDirectory getVaccinationCenterDirectory() {
+        if(vaccinationCenterDirectory == null){
+           vaccinationCenterDirectory = new  VaccinationCenterDirectory();                      
+        }
+        return vaccinationCenterDirectory;
+    }
+
+    public void setVaccinationCenterDirectory(VaccinationCenterDirectory vaccinationCenterDirectory) {
+        this.vaccinationCenterDirectory = vaccinationCenterDirectory;
+    }
+
+    
+    
+    public ColdChainSupplierDirectory getColdChainSupplierDirectory() {
+        if(coldChainSupplierDirectory == null){
+            coldChainSupplierDirectory = new ColdChainSupplierDirectory();
+        }
+        return coldChainSupplierDirectory;
+    }
+
+    public void setColdChainSupplierDirectory(ColdChainSupplierDirectory coldChainSupplierDirectory) {
+        this.coldChainSupplierDirectory = coldChainSupplierDirectory;
+    }
+   
     public StateGovernmentDirectory getStateGovernmentDirectory() {
         if (stateGovernmentDirectory == null){
             stateGovernmentDirectory = new StateGovernmentDirectory();
@@ -87,6 +117,8 @@ public class EcoSystem extends Organization{
        vaccineManufacturerDirectory = new VaccineManufacturerDirectory();
        federalGovernmentDirectory = new FederalGovernmentDirectory();
        stateGovernmentDirectory = new StateGovernmentDirectory();
+       coldChainSupplierDirectory = new ColdChainSupplierDirectory();
+       vaccinationCenterDirectory = new VaccinationCenterDirectory();
     }
 
     

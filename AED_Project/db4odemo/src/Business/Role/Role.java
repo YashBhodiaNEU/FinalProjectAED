@@ -4,12 +4,14 @@
  */
 package Business.Role;
 
+import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 
 import Business.Organization;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
+import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import javax.swing.JPanel;
 
@@ -53,7 +55,9 @@ public abstract class Role {
             EcoSystem business,
             VaccineManufacturerDirectory vaccineManufacturerDirectory,
             FederalGovernmentDirectory federalGovernmentDirectory,
-            StateGovernmentDirectory stateGovernmentDirectory);
+            StateGovernmentDirectory stateGovernmentDirectory,
+            ColdChainSupplierDirectory coldChainSupplierDirectoy,
+            VaccinationCenterDirectory vaccinationCenterDirectory);
 
     @Override
     public String toString() {
