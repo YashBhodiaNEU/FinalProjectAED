@@ -4,9 +4,13 @@
  */
 package userinterface.FederalGovernment;
 
+import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
+import Business.SessionManagers.SessionManagerDirectory;
+import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
+import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import javax.swing.JPanel;
 
@@ -19,7 +23,7 @@ public class FederalGovernmentWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form FederalGovernmentWorkArea
      */
-    public FederalGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory) {
+    public FederalGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
         initComponents();
     }
 

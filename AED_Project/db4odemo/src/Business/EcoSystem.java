@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package Business;
-
+import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.SessionManagers.SessionManagerDirectory;
+import Business.StateGovernment.StateGovernmentDirectory;
+import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.util.ArrayList;
 
@@ -20,10 +23,65 @@ public class EcoSystem extends Organization{
     private static EcoSystem business;
     private VaccineManufacturerDirectory vaccineManufacturerDirectory;
     private FederalGovernmentDirectory federalGovernmentDirectory;
+    private StateGovernmentDirectory stateGovernmentDirectory;
+    private ColdChainSupplierDirectory coldChainSupplierDirectory;
+    private VaccinationCenterDirectory vaccinationCenterDirectory;
+    private SessionManagerDirectory sessionManagerDirectory;
 
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory) {
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
+        this.stateGovernmentDirectory = stateGovernmentDirectory;
+        this.coldChainSupplierDirectory = coldChainSupplierDirectory;
+        this.vaccinationCenterDirectory = vaccinationCenterDirectory;
+        this.sessionManagerDirectory = sessionManagerDirectory;
+    }
+
+    public SessionManagerDirectory getSessionManagerDirectory() {
+        if(sessionManagerDirectory == null){
+            sessionManagerDirectory = new SessionManagerDirectory();
+        }
+        return sessionManagerDirectory;
+    }
+
+    public void setSessionManagerDirectory(SessionManagerDirectory sessionManagerDirectory) {
+        this.sessionManagerDirectory = sessionManagerDirectory;
+    }
+
+    
+    public VaccinationCenterDirectory getVaccinationCenterDirectory() {
+        if(vaccinationCenterDirectory == null){
+           vaccinationCenterDirectory = new  VaccinationCenterDirectory();                      
+        }
+        return vaccinationCenterDirectory;
+    }
+
+    public void setVaccinationCenterDirectory(VaccinationCenterDirectory vaccinationCenterDirectory) {
+        this.vaccinationCenterDirectory = vaccinationCenterDirectory;
+    }
+
+    
+    
+    public ColdChainSupplierDirectory getColdChainSupplierDirectory() {
+        if(coldChainSupplierDirectory == null){
+            coldChainSupplierDirectory = new ColdChainSupplierDirectory();
+        }
+        return coldChainSupplierDirectory;
+    }
+
+    public void setColdChainSupplierDirectory(ColdChainSupplierDirectory coldChainSupplierDirectory) {
+        this.coldChainSupplierDirectory = coldChainSupplierDirectory;
+    }
+   
+    public StateGovernmentDirectory getStateGovernmentDirectory() {
+        if (stateGovernmentDirectory == null){
+            stateGovernmentDirectory = new StateGovernmentDirectory();
+        }
+        return stateGovernmentDirectory;
+    }
+
+    public void setStateGovernmentDirectory(StateGovernmentDirectory stateGovernmentDirectory) {
+        this.stateGovernmentDirectory = stateGovernmentDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -73,6 +131,10 @@ public class EcoSystem extends Organization{
        // networkList=new ArrayList<Network>();
        vaccineManufacturerDirectory = new VaccineManufacturerDirectory();
        federalGovernmentDirectory = new FederalGovernmentDirectory();
+       stateGovernmentDirectory = new StateGovernmentDirectory();
+       coldChainSupplierDirectory = new ColdChainSupplierDirectory();
+       vaccinationCenterDirectory = new VaccinationCenterDirectory();
+       sessionManagerDirectory = new SessionManagerDirectory();
     }
 
     

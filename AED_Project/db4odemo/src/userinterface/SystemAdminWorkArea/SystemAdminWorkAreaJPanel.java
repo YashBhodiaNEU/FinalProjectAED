@@ -5,11 +5,15 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 
 import Business.Organization;
+import Business.SessionManagers.SessionManagerDirectory;
+import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
+import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -30,14 +34,21 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     VaccineManufacturerDirectory vaccineManufacturerDirectory;
     FederalGovernmentDirectory federalGovernmentDirectory;
+    StateGovernmentDirectory stateGovernmentDirectory;
+    ColdChainSupplierDirectory coldChainSupplierDirectory;
+    VaccinationCenterDirectory vaccinationCenterDirectory;
+    SessionManagerDirectory sessionManagerDirectory;
     
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory  ) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
-        System.out.println(federalGovernmentDirectory);
+        this.stateGovernmentDirectory = stateGovernmentDirectory;
+        this.coldChainSupplierDirectory = coldChainSupplierDirectory;
+        this.vaccinationCenterDirectory = vaccinationCenterDirectory;
+        this.sessionManagerDirectory = sessionManagerDirectory;
         populateTree();
     }
     
@@ -65,6 +76,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblSelectedNode = new javax.swing.JLabel();
         btnManageVaccineManufacturer = new javax.swing.JButton();
         btnManageFederalGovernment = new javax.swing.JButton();
+        btnManageStateGovernment = new javax.swing.JButton();
+        btnColdChainSuppliers = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -110,6 +123,20 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageStateGovernment.setText("Manage State Government");
+        btnManageStateGovernment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageStateGovernmentActionPerformed(evt);
+            }
+        });
+
+        btnColdChainSuppliers.setText("Manage Cold Chain Suppliers");
+        btnColdChainSuppliers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnColdChainSuppliersActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -123,7 +150,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(lblSelectedNode))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(btnManageFederalGovernment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnManageVaccineManufacturer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnManageVaccineManufacturer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnManageStateGovernment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnColdChainSuppliers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(297, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -137,7 +166,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnManageVaccineManufacturer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageFederalGovernment)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnManageStateGovernment)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnColdChainSuppliers)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -162,16 +195,33 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageFederalGovernmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFederalGovernmentActionPerformed
         // TODO add your handling code here:
-    System.out.println(federalGovernmentDirectory);
     ManageAllFederalGovernments mafg = new ManageAllFederalGovernments(userProcessContainer, ecosystem, federalGovernmentDirectory);
     userProcessContainer.add("ManageAllFederalGovernments",mafg);
     CardLayout layout=(CardLayout)userProcessContainer.getLayout();
     layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageFederalGovernmentActionPerformed
 
+    private void btnManageStateGovernmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageStateGovernmentActionPerformed
+        // TODO add your handling code here:
+    ManageAllStateGovernments masg = new ManageAllStateGovernments(userProcessContainer, ecosystem, stateGovernmentDirectory);
+    userProcessContainer.add("ManageAllStateGovernments",masg);
+    CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+    layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageStateGovernmentActionPerformed
+
+    private void btnColdChainSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColdChainSuppliersActionPerformed
+        // TODO add your handling code here:
+    ManageAllColdChainSuppliers maccs = new ManageAllColdChainSuppliers(userProcessContainer, ecosystem, coldChainSupplierDirectory);
+    userProcessContainer.add("ManageAllColdChainSupplier",maccs);
+    CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+    layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnColdChainSuppliersActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnColdChainSuppliers;
     private javax.swing.JButton btnManageFederalGovernment;
+    private javax.swing.JButton btnManageStateGovernment;
     private javax.swing.JButton btnManageVaccineManufacturer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
