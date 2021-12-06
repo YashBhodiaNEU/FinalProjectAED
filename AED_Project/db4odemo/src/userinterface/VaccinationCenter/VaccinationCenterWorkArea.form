@@ -37,19 +37,11 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnManageSessionManager" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnManageVaccinators" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnManageAEFIManagers" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="283" max="32767" attributes="0"/>
-=======
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Component id="btnManageAEFIManagers" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnManageVaccinators" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="281" max="32767" attributes="0"/>
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,23 +67,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage Vaccinators"/>
       </Properties>
-<<<<<<< HEAD
-=======
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageVaccinatorsActionPerformed"/>
       </Events>
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
     </Component>
     <Component class="javax.swing.JButton" name="btnManageAEFIManagers">
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage AEFI Managers"/>
       </Properties>
-<<<<<<< HEAD
-=======
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageAEFIManagersActionPerformed"/>
       </Events>
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
     </Component>
   </SubComponents>
 </Form>
