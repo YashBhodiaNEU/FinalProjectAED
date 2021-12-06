@@ -6,7 +6,7 @@ package Business.ColdChainSupplier;
 
 /**
  *
- * @author Karan
+ * @author yashb
  */
 public class ColdChainSupplier {
     private String coldChainSupplierName;

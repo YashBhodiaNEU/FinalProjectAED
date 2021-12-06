@@ -24,8 +24,9 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private EcoSystem ecosystem;
-    private VaccinationCenterDirectory vaccinationCenterDirectory;
     private UserAccount userAccount;
+    private VaccinationCenterDirectory vaccinationCenterDirectory;
+    
             
     public ManageAllVaccinationCenters(JPanel userProcessContainer, EcoSystem ecosystem, VaccinationCenterDirectory vaccinationCenterDirectory, UserAccount userAccount) {
         initComponents();
@@ -126,8 +127,6 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblVaccinationCenters.getModel();
         dtm.setRowCount(0);
         for(VaccinationCenter vc : ecosystem.getVaccinationCenterDirectory().getVaccinationCenterDirectory()){
-            System.out.println(userAccount.getEmployee().getName());
-            System.out.println();
             if(userAccount.getEmployee().getName().equalsIgnoreCase(vc.getStateGovName())){
             Object [] row = new Object[5];
             row[0] = vc;
