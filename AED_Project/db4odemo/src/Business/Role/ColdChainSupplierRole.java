@@ -12,6 +12,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import javax.swing.JPanel;
 import userinterface.ColdChainSupplier.ColdChainSupplierWorkArea;
@@ -32,7 +33,8 @@ public class ColdChainSupplierRole extends Role {
             ColdChainSupplierDirectory coldChainSupplierDirectory, 
             VaccinationCenterDirectory vaccinationCenterDirectory, 
             SessionManagerDirectory sessionManagerDirectory, 
-            AEFIManagerDirectory aefiManagerDirectory){
-        return new ColdChainSupplierWorkArea(userProcessContainer, account, ecosystem, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory, aefiManagerDirectory);
+            AEFIManagerDirectory aefiManagerDirectory,
+            VaccinatorDirectory vaccinatorDirectory){
+        return new ColdChainSupplierWorkArea(userProcessContainer, account, ecosystem, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory, aefiManagerDirectory, vaccinatorDirectory);
     }
 }

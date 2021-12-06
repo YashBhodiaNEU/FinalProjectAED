@@ -15,6 +15,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -40,8 +41,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     VaccinationCenterDirectory vaccinationCenterDirectory;
     SessionManagerDirectory sessionManagerDirectory;
     AEFIManagerDirectory aefiManagerDirectory;
+    VaccinatorDirectory vaccinatorDirectory;
     
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
@@ -52,6 +54,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.vaccinationCenterDirectory = vaccinationCenterDirectory;
         this.sessionManagerDirectory = sessionManagerDirectory;
         this.aefiManagerDirectory = aefiManagerDirectory;
+        this.vaccinatorDirectory = vaccinatorDirectory;
         populateTree();
     }
     

@@ -14,6 +14,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import javax.swing.JPanel;
 
@@ -61,7 +62,8 @@ public abstract class Role {
             ColdChainSupplierDirectory coldChainSupplierDirectoy,
             VaccinationCenterDirectory vaccinationCenterDirectory,
             SessionManagerDirectory sessionManagerDirectory,
-            AEFIManagerDirectory aefiManagerDirectory);
+            AEFIManagerDirectory aefiManagerDirectory,
+            VaccinatorDirectory vaccinatorDirectory);
 
     @Override
     public String toString() {

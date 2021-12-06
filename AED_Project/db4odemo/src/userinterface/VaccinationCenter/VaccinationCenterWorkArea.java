@@ -12,6 +12,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -32,13 +33,16 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     UserAccount userAccount;
     SessionManagerDirectory sessionManagerDirectory;
     AEFIManagerDirectory aefiManagerDirectory;
-    public VaccinationCenterWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory) {
+    VaccinatorDirectory vaccinatorDirectory;
+    
+    public VaccinationCenterWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.ecosystem = ecosystem;
         this.sessionManagerDirectory = sessionManagerDirectory;
         this.aefiManagerDirectory = aefiManagerDirectory;
+        this.vaccinatorDirectory = vaccinatorDirectory;
     }
 
     /**
@@ -66,6 +70,11 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
         });
 
         btnManageVaccinators.setText("Manage Vaccinators");
+        btnManageVaccinators.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageVaccinatorsActionPerformed(evt);
+            }
+        });
 
         btnManageAEFIManagers.setText("Manage AEFI Managers");
         btnManageAEFIManagers.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +127,14 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     CardLayout layout=(CardLayout)userProcessContainer.getLayout();
     layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageAEFIManagersActionPerformed
+
+    private void btnManageVaccinatorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageVaccinatorsActionPerformed
+        // TODO add your handling code here:
+    ManageAllVaccinators mv = new ManageAllVaccinators(userProcessContainer, ecosystem, vaccinatorDirectory, userAccount);
+    userProcessContainer.add("ManageAllVaccinators",mv);
+    CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+    layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageVaccinatorsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

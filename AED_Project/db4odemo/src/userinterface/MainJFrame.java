@@ -15,6 +15,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -38,6 +39,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private VaccinationCenterDirectory vaccinationCenterDirectory;
     private SessionManagerDirectory sessionManagerDirectory;
     private AEFIManagerDirectory aefiManagerDirectory;
+    private VaccinatorDirectory vaccinatorDirectory;
     
     public MainJFrame() {
         initComponents();
@@ -49,6 +51,7 @@ public class MainJFrame extends javax.swing.JFrame {
         coldChainSupplierDirectory = new ColdChainSupplierDirectory();
         vaccinationCenterDirectory = new VaccinationCenterDirectory();
         sessionManagerDirectory = new SessionManagerDirectory();
+        vaccinatorDirectory = new VaccinatorDirectory();
     }
 
     /**
@@ -145,7 +148,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // Get user name
     UserAccount usacc = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
     CardLayout layout = (CardLayout) container.getLayout();
-    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory, aefiManagerDirectory));
+    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory, aefiManagerDirectory, vaccinatorDirectory));
     layout.next(container);
     logoutJButton.setEnabled(true);
     loginJButton.setEnabled(false);

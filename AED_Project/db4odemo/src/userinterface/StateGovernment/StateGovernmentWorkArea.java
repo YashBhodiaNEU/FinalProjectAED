@@ -12,6 +12,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -30,7 +31,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
     VaccinationCenterDirectory vaccinationCenterDirectory;
     UserAccount userAccount;
     
-    public StateGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory) {
+    public StateGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
     initComponents();
     this.userProcessContainer = userProcessContainer;
     this.ecosystem = ecosystem;

@@ -12,6 +12,7 @@ import Business.Role.SystemAdminRole;
 import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.util.ArrayList;
 
@@ -29,8 +30,9 @@ public class EcoSystem extends Organization{
     private VaccinationCenterDirectory vaccinationCenterDirectory;
     private SessionManagerDirectory sessionManagerDirectory;
     private AEFIManagerDirectory aefiManagerDirectory;
+    private VaccinatorDirectory vaccinatorDirectory;
 
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory) {
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
         this.stateGovernmentDirectory = stateGovernmentDirectory;
@@ -38,6 +40,18 @@ public class EcoSystem extends Organization{
         this.vaccinationCenterDirectory = vaccinationCenterDirectory;
         this.sessionManagerDirectory = sessionManagerDirectory;
         this.aefiManagerDirectory = aefiManagerDirectory;
+        this.vaccinatorDirectory = vaccinatorDirectory;
+    }
+
+    public VaccinatorDirectory getVaccinatorDirectory() {
+        if(vaccinatorDirectory == null){
+            vaccinatorDirectory = new VaccinatorDirectory();
+        }
+        return vaccinatorDirectory;
+    }
+
+    public void setVaccinatorDirectory(VaccinatorDirectory vaccinatorDirectory) {
+        this.vaccinatorDirectory = vaccinatorDirectory;
     }
 
     public AEFIManagerDirectory getAefiManagerDirectory() {
@@ -150,6 +164,7 @@ public class EcoSystem extends Organization{
        vaccinationCenterDirectory = new VaccinationCenterDirectory();
        sessionManagerDirectory = new SessionManagerDirectory();
        aefiManagerDirectory = new AEFIManagerDirectory();
+       vaccinatorDirectory = new VaccinatorDirectory();
     }
 
     
