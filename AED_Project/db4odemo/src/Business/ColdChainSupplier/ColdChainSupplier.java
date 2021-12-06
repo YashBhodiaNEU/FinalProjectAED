@@ -11,6 +11,11 @@ package Business.ColdChainSupplier;
 public class ColdChainSupplier {
     private String coldChainSupplierName;
     private float minTempSupport;
+    
+    public ColdChainSupplier(String coldChainSupplierName, float minTempSupport){
+        this.coldChainSupplierName = coldChainSupplierName;
+        this.minTempSupport = minTempSupport;
+    }
 
     public String getColdChainSupplierName() {
         return coldChainSupplierName;

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Karan
+ * @author yashb
  */
 public class CreateStateGovernment extends javax.swing.JPanel {
 

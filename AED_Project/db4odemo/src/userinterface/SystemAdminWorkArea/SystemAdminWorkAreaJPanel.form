@@ -89,6 +89,7 @@
                               <Component id="btnManageFederalGovernment" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnManageVaccineManufacturer" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnManageStateGovernment" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnColdChainSuppliers" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="297" max="32767" attributes="0"/>
@@ -109,7 +110,9 @@
                       <Component id="btnManageFederalGovernment" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnManageStateGovernment" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="238" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnColdChainSuppliers" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="204" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -147,6 +150,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageStateGovernmentActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnColdChainSuppliers">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Cold Chain Suppliers"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnColdChainSuppliersActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

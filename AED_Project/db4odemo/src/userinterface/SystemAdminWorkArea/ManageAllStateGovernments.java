@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Karan
+ * @author yashb
  */
 public class ManageAllStateGovernments extends javax.swing.JPanel {
 

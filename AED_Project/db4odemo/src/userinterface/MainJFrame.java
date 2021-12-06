@@ -4,6 +4,7 @@
  */
 package userinterface;
 
+import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -11,6 +12,7 @@ import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.Organization;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
+import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -30,7 +32,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private VaccineManufacturerDirectory vaccineManufacturerDirectory;
     private FederalGovernmentDirectory federalGovernmentDirectory;
     private StateGovernmentDirectory stateGovernmentDirectory;
-
+    private ColdChainSupplierDirectory coldChainSupplierDirectory;
+    private VaccinationCenterDirectory vaccinationCenterDirectory;
+    
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
@@ -38,6 +42,8 @@ public class MainJFrame extends javax.swing.JFrame {
         vaccineManufacturerDirectory = new VaccineManufacturerDirectory();
         federalGovernmentDirectory = new FederalGovernmentDirectory();
         stateGovernmentDirectory = new StateGovernmentDirectory();
+        coldChainSupplierDirectory = new ColdChainSupplierDirectory();
+        vaccinationCenterDirectory = new VaccinationCenterDirectory();
     }
 
     /**
@@ -134,7 +140,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // Get user name
     UserAccount usacc = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
     CardLayout layout = (CardLayout) container.getLayout();
-    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory));
+    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory));
     layout.next(container);
     logoutJButton.setEnabled(true);
     loginJButton.setEnabled(false);
