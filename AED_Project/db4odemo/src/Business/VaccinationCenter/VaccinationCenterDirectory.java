@@ -35,8 +35,8 @@ public class VaccinationCenterDirectory {
         return null;
     }
     
-    public VaccinationCenter addNewVaccinationCenter(String centerName, String centerAddress, String centerZipCode, String centerContact, double centerBalanceDoses){
-        VaccinationCenter vc = new VaccinationCenter(centerName, centerAddress, centerZipCode, centerContact, centerBalanceDoses);
+    public VaccinationCenter addNewVaccinationCenter(String centerName, String centerAddress, String centerZipCode, String centerContact, double centerBalanceDoses, String stateGovName){
+        VaccinationCenter vc = new VaccinationCenter(centerName, centerAddress, centerZipCode, centerContact, centerBalanceDoses, stateGovName);
         vaccinationCenterDirectory.add(vc);
         return vc;
     } 

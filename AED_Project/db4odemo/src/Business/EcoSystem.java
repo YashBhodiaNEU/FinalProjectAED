@@ -8,6 +8,7 @@ import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
@@ -25,15 +26,29 @@ public class EcoSystem extends Organization{
     private StateGovernmentDirectory stateGovernmentDirectory;
     private ColdChainSupplierDirectory coldChainSupplierDirectory;
     private VaccinationCenterDirectory vaccinationCenterDirectory;
+    private SessionManagerDirectory sessionManagerDirectory;
 
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory) {
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
         this.stateGovernmentDirectory = stateGovernmentDirectory;
         this.coldChainSupplierDirectory = coldChainSupplierDirectory;
         this.vaccinationCenterDirectory = vaccinationCenterDirectory;
+        this.sessionManagerDirectory = sessionManagerDirectory;
     }
 
+    public SessionManagerDirectory getSessionManagerDirectory() {
+        if(sessionManagerDirectory == null){
+            sessionManagerDirectory = new SessionManagerDirectory();
+        }
+        return sessionManagerDirectory;
+    }
+
+    public void setSessionManagerDirectory(SessionManagerDirectory sessionManagerDirectory) {
+        this.sessionManagerDirectory = sessionManagerDirectory;
+    }
+
+    
     public VaccinationCenterDirectory getVaccinationCenterDirectory() {
         if(vaccinationCenterDirectory == null){
            vaccinationCenterDirectory = new  VaccinationCenterDirectory();                      
@@ -119,6 +134,7 @@ public class EcoSystem extends Organization{
        stateGovernmentDirectory = new StateGovernmentDirectory();
        coldChainSupplierDirectory = new ColdChainSupplierDirectory();
        vaccinationCenterDirectory = new VaccinationCenterDirectory();
+       sessionManagerDirectory = new SessionManagerDirectory();
     }
 
     

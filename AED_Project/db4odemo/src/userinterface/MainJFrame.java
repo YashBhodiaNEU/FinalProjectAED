@@ -10,6 +10,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 
 import Business.Organization;
+import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
@@ -34,6 +35,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private StateGovernmentDirectory stateGovernmentDirectory;
     private ColdChainSupplierDirectory coldChainSupplierDirectory;
     private VaccinationCenterDirectory vaccinationCenterDirectory;
+    private SessionManagerDirectory sessionManagerDirectory;
     
     public MainJFrame() {
         initComponents();
@@ -44,6 +46,7 @@ public class MainJFrame extends javax.swing.JFrame {
         stateGovernmentDirectory = new StateGovernmentDirectory();
         coldChainSupplierDirectory = new ColdChainSupplierDirectory();
         vaccinationCenterDirectory = new VaccinationCenterDirectory();
+        sessionManagerDirectory = new SessionManagerDirectory();
     }
 
     /**
@@ -140,7 +143,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // Get user name
     UserAccount usacc = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
     CardLayout layout = (CardLayout) container.getLayout();
-    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory));
+    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory));
     layout.next(container);
     logoutJButton.setEnabled(true);
     loginJButton.setEnabled(false);

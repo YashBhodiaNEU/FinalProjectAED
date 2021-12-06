@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author yashb
+ * @author Karan
  */
 public class ManageAllColdChainSuppliers extends javax.swing.JPanel {
 

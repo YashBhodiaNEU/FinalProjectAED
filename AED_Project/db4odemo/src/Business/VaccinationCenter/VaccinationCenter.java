@@ -14,14 +14,26 @@ public class VaccinationCenter {
     private String centerZipCode;
     private String centerContact;
     private double centerBalanceDoses;
+    private String stateGovName;
     
-    public VaccinationCenter(String centerName, String centerAddress, String centerZipCode, String centerContact, double centerBalanceDoses){
+    public VaccinationCenter(String centerName, String centerAddress, String centerZipCode, String centerContact, double centerBalanceDoses, String stateGovName){
         this.centerName = centerName;
         this.centerAddress = centerAddress;
         this.centerZipCode = centerZipCode;
         this.centerContact = centerContact;
         this.centerBalanceDoses = centerBalanceDoses;
+        this.stateGovName = stateGovName;
     }
+
+    public String getStateGovName() {
+        return stateGovName;
+    }
+
+    public void setStateGovName(String stateGovName) {
+        this.stateGovName = stateGovName;
+    }
+    
+    
 
     public String getCenterName() {
         return centerName;

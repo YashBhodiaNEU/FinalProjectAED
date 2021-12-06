@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 
 import Business.Organization;
+import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
@@ -36,8 +37,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     StateGovernmentDirectory stateGovernmentDirectory;
     ColdChainSupplierDirectory coldChainSupplierDirectory;
     VaccinationCenterDirectory vaccinationCenterDirectory;
+    SessionManagerDirectory sessionManagerDirectory;
     
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
@@ -46,6 +48,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.stateGovernmentDirectory = stateGovernmentDirectory;
         this.coldChainSupplierDirectory = coldChainSupplierDirectory;
         this.vaccinationCenterDirectory = vaccinationCenterDirectory;
+        this.sessionManagerDirectory = sessionManagerDirectory;
         populateTree();
     }
     

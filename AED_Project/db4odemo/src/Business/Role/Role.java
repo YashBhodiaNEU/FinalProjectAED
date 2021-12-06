@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 
 import Business.Organization;
+import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
@@ -57,7 +58,8 @@ public abstract class Role {
             FederalGovernmentDirectory federalGovernmentDirectory,
             StateGovernmentDirectory stateGovernmentDirectory,
             ColdChainSupplierDirectory coldChainSupplierDirectoy,
-            VaccinationCenterDirectory vaccinationCenterDirectory);
+            VaccinationCenterDirectory vaccinationCenterDirectory,
+            SessionManagerDirectory sessionManagerDirectory);
 
     @Override
     public String toString() {
