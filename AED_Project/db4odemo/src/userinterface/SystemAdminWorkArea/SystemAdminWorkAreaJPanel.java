@@ -6,6 +6,7 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.AEFIManager.AEFIManagerDirectory;
+import Business.Beneficiary.BeneficiaryDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -15,6 +16,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
@@ -42,8 +44,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     SessionManagerDirectory sessionManagerDirectory;
     AEFIManagerDirectory aefiManagerDirectory;
     VaccinatorDirectory vaccinatorDirectory;
+    VaccinationSessionDirectory vaccinationSessionDirectory;
+    BeneficiaryDirectory beneficiaryDirectory;
     
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccinationSessionDirectory, BeneficiaryDirectory beneficiaryDirectory) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
@@ -55,6 +59,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.sessionManagerDirectory = sessionManagerDirectory;
         this.aefiManagerDirectory = aefiManagerDirectory;
         this.vaccinatorDirectory = vaccinatorDirectory;
+        this.vaccinationSessionDirectory = vaccinationSessionDirectory;
+        this.beneficiaryDirectory = beneficiaryDirectory;
         populateTree();
     }
     

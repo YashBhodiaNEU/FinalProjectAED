@@ -5,6 +5,7 @@
  */
 package Business;
 import Business.AEFIManager.AEFIManagerDirectory;
+import Business.Beneficiary.BeneficiaryDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.Role.Role;
@@ -12,6 +13,7 @@ import Business.Role.SystemAdminRole;
 import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.util.ArrayList;
@@ -31,8 +33,10 @@ public class EcoSystem extends Organization{
     private SessionManagerDirectory sessionManagerDirectory;
     private AEFIManagerDirectory aefiManagerDirectory;
     private VaccinatorDirectory vaccinatorDirectory;
-
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
+    private VaccinationSessionDirectory vaccineSessionDirectory;
+    private BeneficiaryDirectory beneficiaryDirectory;
+    
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccineSessionDirectory, BeneficiaryDirectory beneficiaryDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
         this.stateGovernmentDirectory = stateGovernmentDirectory;
@@ -41,7 +45,33 @@ public class EcoSystem extends Organization{
         this.sessionManagerDirectory = sessionManagerDirectory;
         this.aefiManagerDirectory = aefiManagerDirectory;
         this.vaccinatorDirectory = vaccinatorDirectory;
+        this.vaccineSessionDirectory = vaccineSessionDirectory;
+        this.beneficiaryDirectory = beneficiaryDirectory;
     }
+
+    public BeneficiaryDirectory getBeneficiaryDirectory() {
+        if(beneficiaryDirectory == null){
+            this.beneficiaryDirectory = new BeneficiaryDirectory();
+        }
+        return beneficiaryDirectory;
+    }
+
+    public void setBeneficiaryDirectory(BeneficiaryDirectory beneficiaryDirectory) {
+        this.beneficiaryDirectory = beneficiaryDirectory;
+    }
+    
+    public VaccinationSessionDirectory getVaccineSessionDirectory() {
+        if(vaccineSessionDirectory == null){
+            this.vaccineSessionDirectory = new VaccinationSessionDirectory();
+        }
+        return vaccineSessionDirectory;
+    }
+
+    public void setVaccineSessionDirectory(VaccinationSessionDirectory vaccineSessionDirectory) {
+        this.vaccineSessionDirectory = vaccineSessionDirectory;
+    }
+    
+    
 
     public VaccinatorDirectory getVaccinatorDirectory() {
         if(vaccinatorDirectory == null){
@@ -165,6 +195,7 @@ public class EcoSystem extends Organization{
        sessionManagerDirectory = new SessionManagerDirectory();
        aefiManagerDirectory = new AEFIManagerDirectory();
        vaccinatorDirectory = new VaccinatorDirectory();
+       beneficiaryDirectory = new BeneficiaryDirectory();
     }
 
     

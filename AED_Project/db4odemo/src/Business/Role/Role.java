@@ -5,6 +5,7 @@
 package Business.Role;
 
 import Business.AEFIManager.AEFIManagerDirectory;
+import Business.Beneficiary.BeneficiaryDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -14,6 +15,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import javax.swing.JPanel;
@@ -63,7 +65,9 @@ public abstract class Role {
             VaccinationCenterDirectory vaccinationCenterDirectory,
             SessionManagerDirectory sessionManagerDirectory,
             AEFIManagerDirectory aefiManagerDirectory,
-            VaccinatorDirectory vaccinatorDirectory);
+            VaccinatorDirectory vaccinatorDirectory,
+            VaccinationSessionDirectory vaccinationSessionDirectory,
+            BeneficiaryDirectory beneficiaryDirectory);
 
     @Override
     public String toString() {

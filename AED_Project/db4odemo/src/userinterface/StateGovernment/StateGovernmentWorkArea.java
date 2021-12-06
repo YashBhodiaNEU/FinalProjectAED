@@ -5,6 +5,7 @@
 package userinterface.StateGovernment;
 
 import Business.AEFIManager.AEFIManagerDirectory;
+import Business.Beneficiary.BeneficiaryDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -12,6 +13,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
@@ -31,7 +33,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
     VaccinationCenterDirectory vaccinationCenterDirectory;
     UserAccount userAccount;
     
-    public StateGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
+    public StateGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccinationSessionDirectory, BeneficiaryDirectory beneficiaryDirectory) {
     initComponents();
     this.userProcessContainer = userProcessContainer;
     this.ecosystem = ecosystem;
