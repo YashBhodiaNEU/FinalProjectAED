@@ -4,10 +4,7 @@
  */
 package userinterface.VaccinationCenter;
 
-<<<<<<< HEAD
-=======
 import Business.AEFIManager.AEFIManagerDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -15,10 +12,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
-<<<<<<< HEAD
-=======
 import Business.Vaccinator.VaccinatorDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -38,24 +32,17 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     EcoSystem ecosystem; 
     UserAccount userAccount;
     SessionManagerDirectory sessionManagerDirectory;
-<<<<<<< HEAD
-    public VaccinationCenterWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
-=======
     AEFIManagerDirectory aefiManagerDirectory;
     VaccinatorDirectory vaccinatorDirectory;
     
     public VaccinationCenterWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.ecosystem = ecosystem;
         this.sessionManagerDirectory = sessionManagerDirectory;
-<<<<<<< HEAD
-=======
         this.aefiManagerDirectory = aefiManagerDirectory;
         this.vaccinatorDirectory = vaccinatorDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
     }
 
     /**
@@ -83,10 +70,6 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
         });
 
         btnManageVaccinators.setText("Manage Vaccinators");
-<<<<<<< HEAD
-
-        btnManageAEFIManagers.setText("Manage AEFI Managers");
-=======
         btnManageVaccinators.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageVaccinatorsActionPerformed(evt);
@@ -99,7 +82,6 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
                 btnManageAEFIManagersActionPerformed(evt);
             }
         });
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -122,19 +104,11 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(btnManageSessionManager)
-<<<<<<< HEAD
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageVaccinators)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageAEFIManagers)
-                .addContainerGap(283, Short.MAX_VALUE))
-=======
                 .addGap(13, 13, 13)
                 .addComponent(btnManageAEFIManagers)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageVaccinators)
                 .addContainerGap(281, Short.MAX_VALUE))
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -146,8 +120,6 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageSessionManagerActionPerformed
 
-<<<<<<< HEAD
-=======
     private void btnManageAEFIManagersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAEFIManagersActionPerformed
         // TODO add your handling code here:
     ManageAllAEFIManagers maam = new ManageAllAEFIManagers(userProcessContainer, ecosystem, aefiManagerDirectory, userAccount);
@@ -164,7 +136,6 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageVaccinatorsActionPerformed
 
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageAEFIManagers;
