@@ -20,15 +20,18 @@ public class CreateVaccinationCenter extends javax.swing.JPanel {
     /**
      * Creates new form CreateVaccinationCenter
      */
+    
+    private UserAccount userAccount;
     private JPanel userProcessContainer;
     private EcoSystem ecosystem;
     private VaccinationCenterDirectory vaccinationCenterDirectory;
     
-    public CreateVaccinationCenter(JPanel userProcessContainer, EcoSystem ecosystem, VaccinationCenterDirectory vaccinationCenterDirectory) {
+    public CreateVaccinationCenter(JPanel userProcessContainer, EcoSystem ecosystem, VaccinationCenterDirectory vaccinationCenterDirectory, UserAccount userAccount) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.vaccinationCenterDirectory = vaccinationCenterDirectory;
+        this.userAccount = userAccount;
     }
 
     /**
@@ -170,9 +173,9 @@ public class CreateVaccinationCenter extends javax.swing.JPanel {
         String zip = txtvaccinationCenterZipCode.getText();
         double balance = Integer.parseInt(txtBalanceDoses.getText());
         String contact = txtContact.getText();
+        String stateGovname = userAccount.getEmployee().getName();
         
-        
-        ecosystem.getVaccinationCenterDirectory().addNewVaccinationCenter(name, address, zip, contact, balance);
+        ecosystem.getVaccinationCenterDirectory().addNewVaccinationCenter(name, address, zip, contact, balance, stateGovname);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(uname, pass, employee, new VaccinationCenterRole());
     }//GEN-LAST:event_btnSaveActionPerformed

@@ -31,7 +31,7 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
-        this.vaccinationCenterDirectory = vaccinationCenterDirectory;
+        this.vaccinationCenterDirectory = ecosystem.getVaccinationCenterDirectory();
         this.userAccount = userAccount;
         populateTable();
     }
@@ -127,8 +127,8 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
         dtm.setRowCount(0);
         for(VaccinationCenter vc : ecosystem.getVaccinationCenterDirectory().getVaccinationCenterDirectory()){
             System.out.println(userAccount.getEmployee().getName());
-            System.out.println(vc.getCenterName());
-            if(userAccount.getEmployee().getName().equalsIgnoreCase(vc.getCenterName())){
+            System.out.println();
+            if(userAccount.getEmployee().getName().equalsIgnoreCase(vc.getStateGovName())){
             Object [] row = new Object[5];
             row[0] = vc;
             row[1] = vc.getCenterAddress();
@@ -137,12 +137,12 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
             row[4] = vc.getCenterBalanceDoses();
             dtm.addRow(row);
         }
-        }
-    }
+      }
+ }
     
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        CreateVaccinationCenter create = new CreateVaccinationCenter(userProcessContainer, ecosystem, vaccinationCenterDirectory);
+        CreateVaccinationCenter create = new CreateVaccinationCenter(userProcessContainer, ecosystem, vaccinationCenterDirectory, userAccount);
         userProcessContainer.add("CreateVaccinationCenterDirectory",create);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer); 

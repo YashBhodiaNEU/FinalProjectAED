@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author yashb
+ * @author Karan
  */
 public class CreateColdChainSupplier extends javax.swing.JPanel {
 
