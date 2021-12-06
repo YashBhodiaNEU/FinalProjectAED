@@ -40,7 +40,7 @@ public class FederalGovernmentDirectory {
     federalGovernmentDirectory.add(fg);
     return fg;
 }
-    public void removeManufacturer(FederalGovernment fg){
+    public void removeFedGovernment(FederalGovernment fg){
    federalGovernmentDirectory.remove(fg);
 }
 }

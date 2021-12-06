@@ -2,24 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/VaccineManufacturer/VaccineManufacturerDirectory.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/VaccineManufacturer/VaccineManufacturer.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/VaccineManufacturer/ManufacturerWorkArea.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/SystemAdminWorkArea/UpdateVaccineManufacturer.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/EcoSystem.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/SystemAdminWorkArea/ManageAllVaccineManufacturers.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/FederalGovernment/FederalGovernment.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/FederalGovernment/FederalGovernmentWorkArea.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/Role/VaccineManufacturerRole.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/Employee/EmployeeDirectory.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/SystemAdminWorkArea/CreateVaccineManufacturer.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/SystemAdminWorkArea/SystemAdminWorkAreaJPanel.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/FederalGovernment/FederalGovernmentDirectory.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/Role/FederalGovernmentRole.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/MainJFrame.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/Role/SystemAdminRole.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/Role/Role.java</file>
+            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/VaccinationCenter/ManageAllAEFIManagers.java</file>
+            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/VaccinationCenter/CreateVaccinator.java</file>
+            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/VaccinationCenter/CreateAEFIManager.java</file>
+            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/VaccinationCenter/ManageAllVaccinators.java</file>
         </group>
+>>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
     </open-files>
 </project-private>

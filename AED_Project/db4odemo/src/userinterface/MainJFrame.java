@@ -4,12 +4,24 @@
  */
 package userinterface;
 
+<<<<<<< HEAD
+=======
+import Business.AEFIManager.AEFIManagerDirectory;
+>>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 
 import Business.Organization;
+import Business.SessionManagers.SessionManagerDirectory;
+import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
+import Business.VaccinationCenter.VaccinationCenterDirectory;
+<<<<<<< HEAD
+=======
+import Business.Vaccinator.VaccinatorDirectory;
+>>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -28,11 +40,30 @@ public class MainJFrame extends javax.swing.JFrame {
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     private VaccineManufacturerDirectory vaccineManufacturerDirectory;
     private FederalGovernmentDirectory federalGovernmentDirectory;
-
+    private StateGovernmentDirectory stateGovernmentDirectory;
+    private ColdChainSupplierDirectory coldChainSupplierDirectory;
+    private VaccinationCenterDirectory vaccinationCenterDirectory;
+    private SessionManagerDirectory sessionManagerDirectory;
+<<<<<<< HEAD
+=======
+    private AEFIManagerDirectory aefiManagerDirectory;
+    private VaccinatorDirectory vaccinatorDirectory;
+>>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+    
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
+        vaccineManufacturerDirectory = new VaccineManufacturerDirectory();
+        federalGovernmentDirectory = new FederalGovernmentDirectory();
+        stateGovernmentDirectory = new StateGovernmentDirectory();
+        coldChainSupplierDirectory = new ColdChainSupplierDirectory();
+        vaccinationCenterDirectory = new VaccinationCenterDirectory();
+        sessionManagerDirectory = new SessionManagerDirectory();
+<<<<<<< HEAD
+=======
+        vaccinatorDirectory = new VaccinatorDirectory();
+>>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
     }
 
     /**
@@ -129,7 +160,11 @@ public class MainJFrame extends javax.swing.JFrame {
         // Get user name
     UserAccount usacc = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
     CardLayout layout = (CardLayout) container.getLayout();
-    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory));
+<<<<<<< HEAD
+    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory));
+=======
+    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory, aefiManagerDirectory, vaccinatorDirectory));
+>>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
     layout.next(container);
     logoutJButton.setEnabled(true);
     loginJButton.setEnabled(false);
