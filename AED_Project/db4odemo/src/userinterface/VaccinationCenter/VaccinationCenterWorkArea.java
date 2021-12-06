@@ -4,6 +4,7 @@
  */
 package userinterface.VaccinationCenter;
 
+import Business.AEFIManager.AEFIManagerDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -30,12 +31,14 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     EcoSystem ecosystem; 
     UserAccount userAccount;
     SessionManagerDirectory sessionManagerDirectory;
-    public VaccinationCenterWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
+    AEFIManagerDirectory aefiManagerDirectory;
+    public VaccinationCenterWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.ecosystem = ecosystem;
         this.sessionManagerDirectory = sessionManagerDirectory;
+        this.aefiManagerDirectory = aefiManagerDirectory;
     }
 
     /**
@@ -65,6 +68,11 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
         btnManageVaccinators.setText("Manage Vaccinators");
 
         btnManageAEFIManagers.setText("Manage AEFI Managers");
+        btnManageAEFIManagers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageAEFIManagersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,11 +95,11 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(btnManageSessionManager)
+                .addGap(13, 13, 13)
+                .addComponent(btnManageAEFIManagers)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageVaccinators)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageAEFIManagers)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -102,6 +110,14 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     CardLayout layout=(CardLayout)userProcessContainer.getLayout();
     layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageSessionManagerActionPerformed
+
+    private void btnManageAEFIManagersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAEFIManagersActionPerformed
+        // TODO add your handling code here:
+    ManageAllAEFIManagers maam = new ManageAllAEFIManagers(userProcessContainer, ecosystem, aefiManagerDirectory, userAccount);
+    userProcessContainer.add("ManageAllAEFIManagers",maam);
+    CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+    layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageAEFIManagersActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

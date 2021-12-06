@@ -4,6 +4,7 @@
  */
 package userinterface;
 
+import Business.AEFIManager.AEFIManagerDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
@@ -36,6 +37,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private ColdChainSupplierDirectory coldChainSupplierDirectory;
     private VaccinationCenterDirectory vaccinationCenterDirectory;
     private SessionManagerDirectory sessionManagerDirectory;
+    private AEFIManagerDirectory aefiManagerDirectory;
     
     public MainJFrame() {
         initComponents();
@@ -143,7 +145,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // Get user name
     UserAccount usacc = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
     CardLayout layout = (CardLayout) container.getLayout();
-    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory));
+    container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory, aefiManagerDirectory));
     layout.next(container);
     logoutJButton.setEnabled(true);
     loginJButton.setEnabled(false);

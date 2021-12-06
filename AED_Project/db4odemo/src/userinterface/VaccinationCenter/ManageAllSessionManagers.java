@@ -26,8 +26,8 @@ public class ManageAllSessionManagers extends javax.swing.JPanel {
     
     private JPanel userProcessContainer;
     private EcoSystem ecosystem;
-    private SessionManagerDirectory sessionManagerDirectory;
     private UserAccount userAccount;
+    private SessionManagerDirectory sessionManagerDirectory;
     
     public ManageAllSessionManagers(JPanel userProcessContainer,EcoSystem ecosystem, SessionManagerDirectory sessionManagerDirectory,UserAccount userAccount) {
         initComponents();

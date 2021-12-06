@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Business;
+import Business.AEFIManager.AEFIManagerDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.Role.Role;
@@ -27,16 +28,29 @@ public class EcoSystem extends Organization{
     private ColdChainSupplierDirectory coldChainSupplierDirectory;
     private VaccinationCenterDirectory vaccinationCenterDirectory;
     private SessionManagerDirectory sessionManagerDirectory;
+    private AEFIManagerDirectory aefiManagerDirectory;
 
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
         this.stateGovernmentDirectory = stateGovernmentDirectory;
         this.coldChainSupplierDirectory = coldChainSupplierDirectory;
         this.vaccinationCenterDirectory = vaccinationCenterDirectory;
         this.sessionManagerDirectory = sessionManagerDirectory;
+        this.aefiManagerDirectory = aefiManagerDirectory;
     }
 
+    public AEFIManagerDirectory getAefiManagerDirectory() {
+        if(aefiManagerDirectory == null){
+            aefiManagerDirectory = new AEFIManagerDirectory();
+        }
+        return aefiManagerDirectory;
+    }
+
+    public void setAefiManagerDirectory(AEFIManagerDirectory aefiManagerDirectory) {
+        this.aefiManagerDirectory = aefiManagerDirectory;
+    }
+    
     public SessionManagerDirectory getSessionManagerDirectory() {
         if(sessionManagerDirectory == null){
             sessionManagerDirectory = new SessionManagerDirectory();
@@ -135,6 +149,7 @@ public class EcoSystem extends Organization{
        coldChainSupplierDirectory = new ColdChainSupplierDirectory();
        vaccinationCenterDirectory = new VaccinationCenterDirectory();
        sessionManagerDirectory = new SessionManagerDirectory();
+       aefiManagerDirectory = new AEFIManagerDirectory();
     }
 
     

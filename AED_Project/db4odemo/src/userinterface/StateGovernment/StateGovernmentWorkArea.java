@@ -4,6 +4,7 @@
  */
 package userinterface.StateGovernment;
 
+import Business.AEFIManager.AEFIManagerDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -29,7 +30,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
     VaccinationCenterDirectory vaccinationCenterDirectory;
     UserAccount userAccount;
     
-    public StateGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
+    public StateGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory) {
     initComponents();
     this.userProcessContainer = userProcessContainer;
     this.ecosystem = ecosystem;

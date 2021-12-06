@@ -4,6 +4,7 @@
  */
 package userinterface.FederalGovernment;
 
+import Business.AEFIManager.AEFIManagerDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -23,7 +24,7 @@ public class FederalGovernmentWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form FederalGovernmentWorkArea
      */
-    public FederalGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
+    public FederalGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory,  AEFIManagerDirectory aefiManagerDirectory) {
         initComponents();
     }
 

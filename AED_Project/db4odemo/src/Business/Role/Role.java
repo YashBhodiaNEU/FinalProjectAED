@@ -4,6 +4,7 @@
  */
 package Business.Role;
 
+import Business.AEFIManager.AEFIManagerDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -59,7 +60,8 @@ public abstract class Role {
             StateGovernmentDirectory stateGovernmentDirectory,
             ColdChainSupplierDirectory coldChainSupplierDirectoy,
             VaccinationCenterDirectory vaccinationCenterDirectory,
-            SessionManagerDirectory sessionManagerDirectory);
+            SessionManagerDirectory sessionManagerDirectory,
+            AEFIManagerDirectory aefiManagerDirectory);
 
     @Override
     public String toString() {

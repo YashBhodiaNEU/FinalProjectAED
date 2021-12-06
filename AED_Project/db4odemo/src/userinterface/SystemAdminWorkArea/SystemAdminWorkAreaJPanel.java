@@ -5,6 +5,7 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.AEFIManager.AEFIManagerDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -38,8 +39,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     ColdChainSupplierDirectory coldChainSupplierDirectory;
     VaccinationCenterDirectory vaccinationCenterDirectory;
     SessionManagerDirectory sessionManagerDirectory;
+    AEFIManagerDirectory aefiManagerDirectory;
     
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount useraccount, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
@@ -49,6 +51,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.coldChainSupplierDirectory = coldChainSupplierDirectory;
         this.vaccinationCenterDirectory = vaccinationCenterDirectory;
         this.sessionManagerDirectory = sessionManagerDirectory;
+        this.aefiManagerDirectory = aefiManagerDirectory;
         populateTree();
     }
     
