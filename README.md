@@ -1,5 +1,5 @@
 # Final Project
-Memebers 
+Members 
 - Riti
 - Yash
 - Karan
