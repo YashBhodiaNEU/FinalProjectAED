@@ -10,6 +10,7 @@ import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.Role.FederalGovernmentRole;
 import Business.Role.VaccineManufacturerRole;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -214,6 +215,9 @@ public class CreateFederalGovernment extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

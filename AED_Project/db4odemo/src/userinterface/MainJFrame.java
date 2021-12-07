@@ -208,7 +208,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
         // TODO add your handling code here:
-        CreateBeneficiary create = new CreateBeneficiary(system, beneficiaryDirectory);
+        CreateBeneficiary create = new CreateBeneficiary(system, beneficiaryDirectory, usacc);
         container.add("CreateBeneficiary" ,create);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
