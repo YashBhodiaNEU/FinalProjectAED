@@ -45,7 +45,7 @@ public class BeneficiaryWorkArea extends javax.swing.JPanel {
 
         jLabel1.setText("Beneficiary Work Area");
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Book an Appointment");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,7 +56,7 @@ public class BeneficiaryWorkArea extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jLabel1))
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addContainerGap(332, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

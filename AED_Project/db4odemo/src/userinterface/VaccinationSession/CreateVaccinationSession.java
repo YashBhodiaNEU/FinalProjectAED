@@ -12,6 +12,7 @@ import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.Vaccinator;
+import java.awt.CardLayout;
 import java.util.Date;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -102,7 +103,7 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
         txtStartTime = new javax.swing.JTextField();
         txtEndTime = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         jLabel1.setText("Create Vaccination Session");
 
@@ -144,7 +145,12 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Back");
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -159,7 +165,7 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
                         .addGap(152, 152, 152)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(btnBack)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnSave))
                             .addGroup(layout.createSequentialGroup()
@@ -230,7 +236,7 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
-                    .addComponent(jButton2))
+                    .addComponent(btnBack))
                 .addContainerGap(128, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -254,11 +260,18 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
     ecosystem.getVaccineSessionDirectory().addVaccinationSession(name, date, stime, etime, mname, aname, vaccinator, vaccine, doses, cname);
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> aefiManagerCombo;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
