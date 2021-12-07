@@ -157,6 +157,12 @@ public class ManageAllFederalGovernments extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+       int selectedRow = tblFederalGovernment.getSelectedRow();
+       FederalGovernment vm = (FederalGovernment)tblFederalGovernment.getValueAt(selectedRow, 0);
+       UpdateFederalGovernment edit = new UpdateFederalGovernment(userProcessContainer, ecosystem, federalGovernmentDirectory, vm);
+       userProcessContainer.add("UpdateFederalGovernment", edit);
+       CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

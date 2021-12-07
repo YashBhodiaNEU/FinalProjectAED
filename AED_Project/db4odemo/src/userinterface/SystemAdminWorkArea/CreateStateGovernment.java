@@ -171,7 +171,7 @@ public class CreateStateGovernment extends javax.swing.JPanel {
         String name = txtSGovName.getText();
         String address = txtSGovAddress.getText();
         String fedName = txtFedName.getText();
-        double stock = Integer.parseInt(txtCurrentStock.getText());
+        long stock = Integer.parseInt(txtCurrentStock.getText());
         
         ecosystem.getStateGovernmentDirectory().addNewStateGovernment(name, address, fedName, stock);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);

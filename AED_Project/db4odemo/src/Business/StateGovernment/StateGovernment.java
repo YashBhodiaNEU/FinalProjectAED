@@ -13,9 +13,9 @@ public class StateGovernment {
     private String stateName;
     private String stateReserveAddress;
     private String fedName;
-    private double currentStock;
+    private long currentStock;
     
-    public StateGovernment(String stateName, String stateReserveAddress, String fedName, double currentStock){
+    public StateGovernment(String stateName, String stateReserveAddress, String fedName, long currentStock){
         this.stateName = stateName;
         this.stateReserveAddress = stateReserveAddress;
         this.fedName = fedName;
@@ -46,13 +46,14 @@ public class StateGovernment {
         this.fedName = fedName;
     }
 
-    public double getCurrentStock() {
+    public long getCurrentStock() {
         return currentStock;
     }
 
-    public void setCurrentStock(double currentStock) {
+    public void setCurrentStock(long currentStock) {
         this.currentStock = currentStock;
     }
+
     
     @Override
     public String toString(){

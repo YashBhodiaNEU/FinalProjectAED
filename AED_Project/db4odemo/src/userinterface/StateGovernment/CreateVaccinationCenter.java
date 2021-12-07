@@ -177,7 +177,7 @@ public class CreateVaccinationCenter extends javax.swing.JPanel {
         String name = txtVaccinationCenter.getText();
         String address = txtVaccinationCenterAddress.getText();
         String zip = txtvaccinationCenterZipCode.getText();
-        double balance = Integer.parseInt(txtBalanceDoses.getText());
+        long balance = Integer.parseInt(txtBalanceDoses.getText());
         String contact = txtContact.getText();
         String stateGovname = userAccount.getEmployee().getName();
         
