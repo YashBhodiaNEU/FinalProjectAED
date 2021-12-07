@@ -9,6 +9,7 @@ import Business.FederalGovernment.FederalGovernment;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.StateGovernment.StateGovernment;
 import Business.StateGovernment.StateGovernmentDirectory;
+import Business.VaccineManufacturer.VaccineManufacturer;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -82,6 +83,11 @@ public class ManageAllStateGovernments extends javax.swing.JPanel {
         });
 
         btnDelete.setText("Delete State Government");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -165,6 +171,14 @@ public class ManageAllStateGovernments extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblStateGovernment.getSelectedRow();
+        StateGovernment vm = (StateGovernment) tblStateGovernment.getValueAt(selectedRow, 0);
+        stateGovernmentDirectory.removeStateGovernment(vm);
+        populateTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
