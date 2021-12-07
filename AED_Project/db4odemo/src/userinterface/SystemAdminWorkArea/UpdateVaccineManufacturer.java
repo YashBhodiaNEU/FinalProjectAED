@@ -180,8 +180,11 @@ public class UpdateVaccineManufacturer extends javax.swing.JPanel {
         // TODO add your handling code here:
         String name = txtManufacturerName.getText();
         String vname = txtVaccineName.getText();
-        String stock = String.valueOf(txtCurrentStock.getText());
+        long stock = Integer.parseInt(txtCurrentStock.getText());
         
+        vaccineManufacturer.setVaccineName(vname);
+        vaccineManufacturer.setManufacturerName(name);
+        vaccineManufacturer.setCurrentStock(stock);
         JOptionPane.showMessageDialog(null, "Manufacturer Profile Updated");
     }//GEN-LAST:event_btnUpdateActionPerformed
 

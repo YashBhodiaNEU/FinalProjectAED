@@ -47,7 +47,7 @@ public class ManageAllSessions extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSessions = new javax.swing.JTable();
         btnCreate = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
@@ -73,7 +73,12 @@ public class ManageAllSessions extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Update Session");
+        btnUpdate.setText("Update Session");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete Session");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +111,7 @@ public class ManageAllSessions extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnCreate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(257, 257, 257)
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -123,7 +128,7 @@ public class ManageAllSessions extends javax.swing.JPanel {
                     .addComponent(btnCreate)
                     .addComponent(btnBack))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btnUpdate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDelete)
                 .addContainerGap(253, Short.MAX_VALUE))
@@ -173,12 +178,22 @@ public class ManageAllSessions extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+       int selectedRow = tblSessions.getSelectedRow();
+       VaccinationSession vm = (VaccinationSession)tblSessions.getValueAt(selectedRow, 0);
+       UpdateVaccinationSession edit = new UpdateVaccinationSession(userAccount, userProcessContainer, ecosystem, vaccinationSessionDirectory, vm);
+       userProcessContainer.add("UpdateVaccinationSession", edit);
+       CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblSessions;

@@ -77,6 +77,11 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
         });
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +176,16 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
         vaccinationCenterDirectory.removeVaccinationCenter(vm);
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+       int selectedRow = tblVaccinationCenters.getSelectedRow();
+       VaccinationCenter vm = (VaccinationCenter)tblVaccinationCenters.getValueAt(selectedRow, 0);
+       UpdateVaccinationCenter edit = new UpdateVaccinationCenter(userProcessContainer, ecosystem, vaccinationCenterDirectory, vm);
+       userProcessContainer.add("UpdateVaccinationCenter", edit);
+       CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

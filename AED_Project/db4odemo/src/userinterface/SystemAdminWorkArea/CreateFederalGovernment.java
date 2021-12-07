@@ -205,7 +205,7 @@ public class CreateFederalGovernment extends javax.swing.JPanel {
         String password = txtPassword.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
-        double stock = Integer.parseInt(txtStock.getText());
+        long stock = Integer.parseInt(txtStock.getText());
         
         ecosystem.getFederalGovernmentDirectory().addNewFedGovernment(name, address, stock);
         

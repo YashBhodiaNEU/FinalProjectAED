@@ -195,7 +195,7 @@ public class CreateVaccineManufacturer extends javax.swing.JPanel {
         // TODO add your handling code here:
         String name = txtManufacturerName.getText();
         String vname = txtVaccineName.getText();
-        double stock = Integer.parseInt(txtCurrentStock.getText());
+        long stock = Integer.parseInt(txtCurrentStock.getText());
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         

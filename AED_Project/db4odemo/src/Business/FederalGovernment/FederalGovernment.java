@@ -13,12 +13,12 @@ import java.util.HashMap;
 public class FederalGovernment {
     private String fedName;
     private String fedReserveAddress;
-    private double currentStock;
+    private long currentStock;
     //private HashMap<String, Integer> vaccineStock;
     
   
     
-    public FederalGovernment(String fedName, String fedReserveAddress, double currentStock){
+    public FederalGovernment(String fedName, String fedReserveAddress, long currentStock){
         this.fedName = fedName;
         this.fedReserveAddress = fedReserveAddress;
         this.currentStock = currentStock;
@@ -40,13 +40,15 @@ public class FederalGovernment {
         this.fedReserveAddress = fedReserveAddress;
     }
 
-    public double getCurrentStock() {
+    public long getCurrentStock() {
         return currentStock;
     }
 
-    public void setCurrentStock(double currentStock) {
+    public void setCurrentStock(long currentStock) {
         this.currentStock = currentStock;
-    }  
+    }
+
+
     
     @Override
     public String toString(){
