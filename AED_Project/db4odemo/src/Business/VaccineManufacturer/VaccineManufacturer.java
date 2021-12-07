@@ -11,9 +11,9 @@ package Business.VaccineManufacturer;
 public class VaccineManufacturer {
     private String manufacturerName;
     private String vaccineName;
-    private double currentStock;
+    private long currentStock;
     
-    public VaccineManufacturer(String manufacturerName, String vaccineName, double currentStock){
+    public VaccineManufacturer(String manufacturerName, String vaccineName, long currentStock){
         this.manufacturerName = manufacturerName;
         this.vaccineName = vaccineName;
         this.currentStock = currentStock;
@@ -35,13 +35,14 @@ public class VaccineManufacturer {
         this.vaccineName = vaccineName;
     }
 
-    public double getCurrentStock() {
+    public long getCurrentStock() {
         return currentStock;
     }
 
-    public void setCurrentStock(double currentStock) {
+    public void setCurrentStock(long currentStock) {
         this.currentStock = currentStock;
     }
+
     
     @Override
     public String toString(){

@@ -35,7 +35,7 @@ public class VaccineManufacturerDirectory {
         return null;
     }
     
-    public VaccineManufacturer addNewVaccineManufacturer(String manufacturerName, String vaccineName, double currentStock){
+    public VaccineManufacturer addNewVaccineManufacturer(String manufacturerName, String vaccineName, long currentStock){
         VaccineManufacturer vaccineManufacturer = new VaccineManufacturer(manufacturerName, vaccineName, currentStock);
         vaccineManufacturerDirectory.add(vaccineManufacturer);
         return vaccineManufacturer;

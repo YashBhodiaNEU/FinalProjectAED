@@ -13,10 +13,10 @@ public class VaccinationCenter {
     private String centerAddress;
     private String centerZipCode;
     private String centerContact;
-    private double centerBalanceDoses;
+    private long centerBalanceDoses;
     private String stateGovName;
     
-    public VaccinationCenter(String centerName, String centerAddress, String centerZipCode, String centerContact, double centerBalanceDoses, String stateGovName){
+    public VaccinationCenter(String centerName, String centerAddress, String centerZipCode, String centerContact, long centerBalanceDoses, String stateGovName){
         this.centerName = centerName;
         this.centerAddress = centerAddress;
         this.centerZipCode = centerZipCode;
@@ -67,13 +67,14 @@ public class VaccinationCenter {
         this.centerContact = centerContact;
     }
 
-    public double getCenterBalanceDoses() {
+    public long getCenterBalanceDoses() {
         return centerBalanceDoses;
     }
 
-    public void setCenterBalanceDoses(double centerBalanceDoses) {
+    public void setCenterBalanceDoses(long centerBalanceDoses) {
         this.centerBalanceDoses = centerBalanceDoses;
     }
+
     
     @Override
     public String toString(){

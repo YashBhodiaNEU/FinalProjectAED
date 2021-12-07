@@ -153,6 +153,12 @@ public class ManageAllColdChainSuppliers extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+       int selectedRow = tblColdChainSuppliers.getSelectedRow();
+       ColdChainSupplier vm = (ColdChainSupplier)tblColdChainSuppliers.getValueAt(selectedRow, 0);
+       UpdateColdChainSupplier edit = new UpdateColdChainSupplier(userProcessContainer, ecosystem, coldChainSupplierDirectory, vm);
+       userProcessContainer.add("UpdateColdChain", edit);
+       CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

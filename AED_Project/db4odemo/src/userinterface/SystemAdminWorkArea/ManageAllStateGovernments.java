@@ -163,6 +163,12 @@ public class ManageAllStateGovernments extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+       int selectedRow = tblStateGovernment.getSelectedRow();
+       StateGovernment vm = (StateGovernment)tblStateGovernment.getValueAt(selectedRow, 0);
+       UpdateStateGovernment edit = new UpdateStateGovernment(userProcessContainer, ecosystem, stateGovernmentDirectory, vm);
+       userProcessContainer.add("UpdateStateGovernment", edit);
+       CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

@@ -35,7 +35,7 @@ public class FederalGovernmentDirectory {
         return null;
     }
     
-    public FederalGovernment addNewFedGovernment(String fedName, String fedRAddress, double currentStock){
+    public FederalGovernment addNewFedGovernment(String fedName, String fedRAddress, long currentStock){
     FederalGovernment fg = new FederalGovernment(fedName, fedRAddress, currentStock);
     federalGovernmentDirectory.add(fg);
     return fg;
