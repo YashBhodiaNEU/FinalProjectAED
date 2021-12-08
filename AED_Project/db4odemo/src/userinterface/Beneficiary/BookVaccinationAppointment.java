@@ -101,6 +101,11 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
 
         tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
@@ -151,8 +156,8 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
                     .addComponent(btnBookAppointment)
                     .addComponent(btnBack))
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

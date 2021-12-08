@@ -5,6 +5,7 @@
 package userinterface.AEFIManager;
 
 import Business.AEFIManager.AEFIManagerDirectory;
+import Business.AppointmentBooking.BookAppointment;
 import Business.Beneficiary.BeneficiaryDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
@@ -17,6 +18,7 @@ import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,10 +29,48 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form AEFIManagerWorkArea
      */
+    JPanel userProcessContainer;
+    EcoSystem ecosystem; 
+    UserAccount userAccount;
     public AEFIManagerWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccinationSessionDirectory, BeneficiaryDirectory beneficiaryDirectory) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
+        this.userAccount = account;
+        populateAEFITable();
     }
 
+    public void populateAEFITable(){
+        DefaultTableModel dtm = (DefaultTableModel) tblAEFIs.getModel();
+        dtm.setRowCount(0);
+        for (BookAppointment ba : ecosystem.getAppointmentDirectory().getAppointmentDirectory()){
+            if(userAccount.getEmployee().getName().equalsIgnoreCase(ba.getVaccinationSession().getAefiManager()) && (ba.getAppointmentStatus().toString().equalsIgnoreCase("AEFI Event"))){
+                 Object [] row = new Object[5];
+                 row[0] = ba;
+                 row[1] = ba.getBeneficiary().getBeneficiaryName();
+                 row[2] = ba.getVaccinationSession().getSessionName();
+                 row[3] = ba.getDoseNumber();
+                 row[4] = ba.getAppointmentStatus();
+                 dtm.addRow(row);
+            }
+        }
+    }
+    
+    public void populateResolveTable(){
+        DefaultTableModel dtm = (DefaultTableModel) tblResolvedAEFIs.getModel();
+        dtm.setRowCount(0);
+        for (BookAppointment ba : ecosystem.getAppointmentDirectory().getAppointmentDirectory()){
+            if(userAccount.getEmployee().getName().equalsIgnoreCase(ba.getVaccinationSession().getAefiManager()) && (ba.getAppointmentStatus().toString().equalsIgnoreCase("AEFI resolved"))){
+                 Object [] row = new Object[5];
+                 row[0] = ba;
+                 row[1] = ba.getBeneficiary().getBeneficiaryName();
+                 row[2] = ba.getVaccinationSession().getSessionName();
+                 row[3] = ba.getDoseNumber();
+                 row[4] = ba.getAppointmentStatus();
+                 dtm.addRow(row);
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,30 +80,116 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblAEFIs = new javax.swing.JTable();
+        btnAEFIResolution = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblResolvedAEFIs = new javax.swing.JTable();
 
-        jLabel1.setText("AEFI Manager Work Area");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Adverse Events After Immunization Reported");
+
+        tblAEFIs.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Appointment ID", "Beneficiary", "Session", "Dose", "Status"
+            }
+        ));
+        jScrollPane3.setViewportView(tblAEFIs);
+
+        btnAEFIResolution.setText("AEFI Resolved");
+        btnAEFIResolution.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAEFIResolutionActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("AEFI Requests");
+
+        tblResolvedAEFIs.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Appointment ID", "Beneficiary", "Session", "Dose", "Status"
+            }
+        ));
+        jScrollPane4.setViewportView(tblResolvedAEFIs);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(187, 187, 187)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnAEFIResolution)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addContainerGap(355, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAEFIResolution)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAEFIResolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAEFIResolutionActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblAEFIs.getSelectedRow();
+        BookAppointment ba = (BookAppointment)tblAEFIs.getValueAt(selectedRow, 0);
+        String status = "AEFI resolved";
+        ba.setAppointmentStatus(status);
+        populateResolveTable();
+    }//GEN-LAST:event_btnAEFIResolutionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAEFIResolution;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable tblAEFIs;
+    private javax.swing.JTable tblResolvedAEFIs;
     // End of variables declaration//GEN-END:variables
 }
