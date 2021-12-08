@@ -136,7 +136,7 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
 
         vaccinatorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        vaccineComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Vaccine", "Pfizer", " " }));
+        vaccineComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Vaccine", "Pfizer", "Moderna", "Covishield", "Covaxin", "Jenssen", " " }));
 
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {

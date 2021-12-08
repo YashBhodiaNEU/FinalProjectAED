@@ -16,6 +16,7 @@ import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -27,8 +28,18 @@ public class BeneficiaryWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form BeneficiaryWorkArea
      */
+    private UserAccount userAccount;
+    private JPanel userProcessContainer;
+    private BeneficiaryDirectory beneficiaryDirectory;
+    private VaccinationSessionDirectory vaccinationSessionDirectory;
+    private EcoSystem ecosystem;
     public BeneficiaryWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccinationSessionDirectory, BeneficiaryDirectory beneficiaryDirectory) {
         initComponents();
+        this.ecosystem = ecosystem;
+        this.userProcessContainer = userProcessContainer;
+        this.beneficiaryDirectory = beneficiaryDirectory;
+        this.vaccinationSessionDirectory = vaccinationSessionDirectory;
+        this.userAccount = account;
     }
 
     /**
@@ -41,11 +52,16 @@ public class BeneficiaryWorkArea extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnBookAppointment = new javax.swing.JButton();
 
         jLabel1.setText("Beneficiary Work Area");
 
-        jButton1.setText("Book an Appointment");
+        btnBookAppointment.setText("Book an Appointment");
+        btnBookAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookAppointmentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -53,25 +69,35 @@ public class BeneficiaryWorkArea extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addContainerGap(541, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBookAppointment)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addComponent(jButton1)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBookAppointment)
+                .addContainerGap(717, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed
+        // TODO add your handling code here:
+        BookVaccinationAppointment book = new BookVaccinationAppointment(userProcessContainer, beneficiaryDirectory,vaccinationSessionDirectory, ecosystem, userAccount);
+        userProcessContainer.add("BookNewAppointment",book);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBookAppointmentActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBookAppointment;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

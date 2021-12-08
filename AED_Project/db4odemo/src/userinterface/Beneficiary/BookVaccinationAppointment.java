@@ -4,6 +4,18 @@
  */
 package userinterface.Beneficiary;
 
+import Business.AppointmentBooking.BookAppointment;
+import Business.Beneficiary.Beneficiary;
+import Business.Beneficiary.BeneficiaryDirectory;
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import Business.VaccinationCenter.VaccinationCenter;
+import Business.VaccinationSession.VaccinationSession;
+import Business.VaccinationSession.VaccinationSessionDirectory;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Karan
@@ -13,8 +25,20 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
     /**
      * Creates new form BookVaccinationAppointment
      */
-    public BookVaccinationAppointment() {
+    private UserAccount userAccount;
+    private JPanel userProcessContainer;
+    private EcoSystem ecosystem;
+    private BeneficiaryDirectory beneficiaryDirectory;
+    private VaccinationSessionDirectory vaccinationSessionDirectory;
+    private int i=0;
+    public BookVaccinationAppointment(JPanel userProcessContainer, BeneficiaryDirectory beneficiaryDirectory,VaccinationSessionDirectory vaccinationSessionDirectory, EcoSystem ecosystem, UserAccount userAccount) {
         initComponents();
+        this.ecosystem = ecosystem;
+        this.userProcessContainer = userProcessContainer;
+        this.beneficiaryDirectory = beneficiaryDirectory;
+        this.vaccinationSessionDirectory = vaccinationSessionDirectory;
+        this.userAccount = userAccount;
+        populateAppointmentTable();
     }
 
     /**
@@ -27,76 +51,193 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtZipCode = new javax.swing.JTextField();
+        btnBookAppointment = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblVaccinationCenters = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tblSessions = new javax.swing.JTable();
+        btnBack = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblAppointment = new javax.swing.JTable();
 
         jLabel1.setText("Book Vaccination Appointment");
 
-        jLabel2.setText("Enter Zip Code");
+        btnBookAppointment.setText("Book an appointment");
+        btnBookAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookAppointmentActionPerformed(evt);
+            }
+        });
 
-        tblVaccinationCenters.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel3.setText("Date");
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        tblSessions.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Hospital ", "Session ", "Date", "Start Time", "End Time", "Vaccine ", "Available Doses", "Title 8", "Title 9", "Title 10"
+            }
+        ));
+        jScrollPane1.setViewportView(tblSessions);
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Adrres", "Zip", "Contact", "Balance"
+                "Appointment ID", "Beneficiary", "Session", "Dose", "Status"
             }
         ));
-        jScrollPane1.setViewportView(tblVaccinationCenters);
-
-        jButton1.setText("Book an appointment");
+        jScrollPane2.setViewportView(tblAppointment);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
+                        .addComponent(btnBookAppointment)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(174, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSearch))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(225, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearch)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBookAppointment)
+                    .addComponent(btnBack))
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void populateSessionTable(){
+        DefaultTableModel dtm = (DefaultTableModel) tblSessions.getModel();
+        dtm.setRowCount(0);
+        String date = txtDate.getText();
+        for(VaccinationSession vs : ecosystem.getVaccineSessionDirectory().getVaccinationSessionDirectory()){
+            if(vs.getSessionDate().equals(date)){
+            Object [] row = new Object[10];
+            row[0] = vs;
+            row[1] = vs.getSessionDate();
+            row[2] = vs.getStartTime();
+            row[3] = vs.getEndTime();
+            row[4] = vs.getSessionManager();
+            row[5] = vs.getAefiManager();
+            row[6] = vs.getVaccinator();
+            row[7] = vs.getVaccineName();
+            row[8] = vs.getAvailableDoses();
+            row[9] = vs.getCenterName();
+            dtm.addRow(row);
+        }
+      }
+    }
+    
+    public void populateAppointmentTable(){
+        DefaultTableModel dtm = (DefaultTableModel) tblAppointment.getModel();
+        dtm.setRowCount(0);
+        for (BookAppointment ba : ecosystem.getAppointmentDirectory().getAppointmentDirectory()){
+            if(userAccount.getEmployee().getName().equalsIgnoreCase(ba.getBeneficiary().getBeneficiaryName())){
+                 Object [] row = new Object[5];
+                 row[0] = ba;
+                 row[1] = ba.getBeneficiary().getBeneficiaryName();
+                 row[2] = ba.getVaccinationSession().getSessionName();
+                 row[3] = ba.getDoseNumber();
+                 row[4] = ba.getAppointmentStatus();
+                 dtm.addRow(row);
+            }
+        }
+    }
+    
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        populateSessionTable();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblSessions.getSelectedRow();
+        
+        Beneficiary beneficiary = ecosystem.getBeneficiaryDirectory().getBeneficiary(userAccount.getEmployee().getName());
+        VaccinationSession vs = (VaccinationSession)tblSessions.getValueAt(selectedRow, 0);
+        BookAppointment ba = ecosystem.getAppointmentDirectory().newAppointment();
+        String status = "Appointment Booked";
+        int doseNumber = 1;
+        
+        ba.setAppointmentID(String.valueOf(i++));
+        ba.setBeneficiary(beneficiary);
+        ba.setVaccinationSession(vs);
+        ba.setAppointmentStatus(status);
+        ba.setDoseNumber(doseNumber);
+        
+        
+        populateAppointmentTable();
+        btnBookAppointment.setEnabled(false);
+    }//GEN-LAST:event_btnBookAppointmentActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBookAppointment;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblVaccinationCenters;
-    private javax.swing.JTextField txtZipCode;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblAppointment;
+    private javax.swing.JTable tblSessions;
+    private javax.swing.JTextField txtDate;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,7 +25,7 @@ public class BeneficiaryDirectory {
         this.beneficiaryDirectory = beneficiaryDirectory;
     }
     
-    public Beneficiary getAEFIManager(String name){
+    public Beneficiary getBeneficiary(String name){
         for (Beneficiary sm: beneficiaryDirectory){
             if(sm.getBeneficiaryName().equalsIgnoreCase(name)){
                 return sm;
