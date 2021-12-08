@@ -46,7 +46,6 @@ public class VaccinationSession {
         this.centerName = centerName;
     }
     
-
     public String getSessionName() {
         return sessionName;
     }

@@ -4,6 +4,14 @@
  */
 package userinterface.Beneficiary;
 
+import Business.Beneficiary.BeneficiaryDirectory;
+import Business.EcoSystem;
+import Business.VaccinationSession.VaccinationSession;
+import Business.VaccinationSession.VaccinationSessionDirectory;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Karan
@@ -13,8 +21,16 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
     /**
      * Creates new form BookVaccinationAppointment
      */
-    public BookVaccinationAppointment() {
+    private JPanel userProcessContainer;
+    private EcoSystem ecosystem;
+    private BeneficiaryDirectory beneficiaryDirectory;
+    private VaccinationSessionDirectory vaccinationSessionDirectory;
+    public BookVaccinationAppointment(JPanel userProcessContainer, BeneficiaryDirectory beneficiaryDirectory,VaccinationSessionDirectory vaccinationSessionDirectory, EcoSystem ecosystem) {
         initComponents();
+        this.ecosystem = ecosystem;
+        this.userProcessContainer = userProcessContainer;
+        this.beneficiaryDirectory = beneficiaryDirectory;
+        this.vaccinationSessionDirectory = vaccinationSessionDirectory;
     }
 
     /**
@@ -29,28 +45,48 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtZipCode = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblVaccinationCenters = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSessions = new javax.swing.JTable();
+        btnBack = new javax.swing.JButton();
 
         jLabel1.setText("Book Vaccination Appointment");
 
         jLabel2.setText("Enter Zip Code");
 
-        tblVaccinationCenters.setModel(new javax.swing.table.DefaultTableModel(
+        jButton1.setText("Book an appointment");
+
+        jLabel3.setText("Date");
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        tblSessions.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Adrres", "Zip", "Contact", "Balance"
+                "Session Name", "Date", "StartTime", "EndTime", "Vaccine ", "Available Doses"
             }
         ));
-        jScrollPane1.setViewportView(tblVaccinationCenters);
+        jScrollPane1.setViewportView(tblSessions);
 
-        jButton1.setText("Book an appointment");
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,15 +99,23 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(174, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSearch)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,21 +126,62 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSearch)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btnBack))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void populateSessionTable(){
+        DefaultTableModel dtm = (DefaultTableModel) tblSessions.getModel();
+        dtm.setRowCount(0);
+        String zipCode = txtZipCode.getText();
+        String date = txtDate.getText();
+        for(VaccinationSession vs : ecosystem.getVaccineSessionDirectory().getVaccinationSessionDirectory()){
+            Object [] row = new Object[6];
+            row[0] = vs;
+            row[1] = vs.getSessionDate();
+            row[2] = vs.getStartTime();
+            row[3] = vs.getEndTime();
+            row[4] = vs.getVaccineName();
+            row[5] = vs.getAvailableDoses();
+            dtm.addRow(row);
+        }
+    }
+    
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        populateSessionTable();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblVaccinationCenters;
+    private javax.swing.JTable tblSessions;
+    private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }
