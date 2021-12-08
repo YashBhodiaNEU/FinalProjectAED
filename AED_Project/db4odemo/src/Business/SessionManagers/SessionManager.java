@@ -4,13 +4,14 @@
  */
 package Business.SessionManagers;
 
+
 /**
  *
  * @author yashb
  */
 
 
-public class SessionManager {
+public class SessionManager{
     private String managerName;
     private String managerEmailID;
     private String centerName;
