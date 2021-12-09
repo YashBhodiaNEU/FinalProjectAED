@@ -118,6 +118,7 @@ public class VaccinationSession{
         this.availableDoses = availableDoses;
     }
     
+    
     @Override
     public String toString(){
         return sessionName;

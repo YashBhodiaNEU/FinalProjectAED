@@ -296,6 +296,7 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
         String status = "Vital Sign checked";
         ba.setAppointmentStatus(status);
         populateFitForVaccineAdministrationTable();
+        populateAppointmentTable();
     }//GEN-LAST:event_btnFitForAdministrationActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -327,6 +328,8 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
             ba.setAppointmentStatus(status);
         }
         populateVaccinatedTable();
+        populateAEFITable();
+        
     }//GEN-LAST:event_btnRestoreStatusActionPerformed
 
 

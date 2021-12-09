@@ -144,8 +144,9 @@ public class CreateBeneficiary extends javax.swing.JPanel {
         String contact = txtContact.getText();
         String uname = txtUserName.getText();
         String pass = txtPassword.getText();
+        String status = "Not Vaccinated";
         
-        ecosystem.getBeneficiaryDirectory().addBeneficiary(name, age, contact);
+        ecosystem.getBeneficiaryDirectory().addBeneficiary(name, age, contact, status);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(uname, pass, employee, new BeneficiaryRole());
     }//GEN-LAST:event_btnCreateActionPerformed

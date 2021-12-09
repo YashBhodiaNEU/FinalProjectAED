@@ -59,9 +59,7 @@ public class BookAppointment extends WorkRequest {
     public void setAppointmentID(String appointmentID) {
         this.appointmentID = appointmentID;
     }
-    
-    
-   
+     
     @Override
     public String toString(){
         return appointmentID;

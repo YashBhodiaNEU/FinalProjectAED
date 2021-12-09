@@ -38,6 +38,7 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.userAccount = account;
         populateAEFITable();
+        populateResolveTable();
     }
 
     public void populateAEFITable(){
@@ -180,6 +181,7 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
         String status = "AEFI resolved";
         ba.setAppointmentStatus(status);
         populateResolveTable();
+        populateAEFITable();
     }//GEN-LAST:event_btnAEFIResolutionActionPerformed
 
 

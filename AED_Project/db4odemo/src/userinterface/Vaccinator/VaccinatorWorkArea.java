@@ -14,6 +14,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.VaccinationSession.VaccinationSession;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
@@ -205,15 +206,21 @@ public class VaccinatorWorkArea extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblAppointmentFit.getSelectedRow();
         BookAppointment ba = (BookAppointment)tblAppointmentFit.getValueAt(selectedRow, 0);
-        if(ba.getDoseNumber() == 1){
-            String status = "Partially Vaccinated";
-            ba.setAppointmentStatus(status);
+        double availableDoses = ba.getVaccinationSession().getAvailableDoses();
+        ba.getVaccinationSession().setAvailableDoses(availableDoses - 1);
+        if(ba.getBeneficiary().getStatus() == "Not Vaccinated"){
+            ba.setAppointmentStatus("Partially Vaccinated");
+            ba.getBeneficiary().setStatus("Partially Vaccinated");
         }
-        else if(ba.getDoseNumber() == 2){
-            String status = "Fully Vaccinated";
-            ba.setAppointmentStatus(status);
+        else if(ba.getBeneficiary().getStatus() == "Partially Vaccinated"){
+            ba.setAppointmentStatus("Fully Vaccinated");
+            ba.getBeneficiary().setStatus("Fully Vaccinated");
+        }
+        else{
+            //Display that person is fully vaccinated...
         }
         populateVaccinatedTable();
+        populateFitForVaccineAdministrationTable();
     }//GEN-LAST:event_btnVaccinatedActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
