@@ -5,6 +5,7 @@
  */
 package Business;
 import Business.AEFIManager.AEFIManagerDirectory;
+import Business.AppointmentBooking.AppointmentDirectory;
 import Business.Beneficiary.BeneficiaryDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -35,8 +36,9 @@ public class EcoSystem extends Organization{
     private VaccinatorDirectory vaccinatorDirectory;
     private VaccinationSessionDirectory vaccineSessionDirectory;
     private BeneficiaryDirectory beneficiaryDirectory;
+    private AppointmentDirectory appointmentDirectory;
     
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccineSessionDirectory, BeneficiaryDirectory beneficiaryDirectory) {
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccineSessionDirectory, BeneficiaryDirectory beneficiaryDirectory, AppointmentDirectory appointmentDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
         this.stateGovernmentDirectory = stateGovernmentDirectory;
@@ -47,8 +49,23 @@ public class EcoSystem extends Organization{
         this.vaccinatorDirectory = vaccinatorDirectory;
         this.vaccineSessionDirectory = vaccineSessionDirectory;
         this.beneficiaryDirectory = beneficiaryDirectory;
+        this.appointmentDirectory = appointmentDirectory;
     }
 
+    public AppointmentDirectory getAppointmentDirectory() {
+        
+        if(appointmentDirectory == null){
+            this.appointmentDirectory = new AppointmentDirectory();
+        }
+        return appointmentDirectory;
+    }
+
+    public void setAppointmentDirectory(AppointmentDirectory appointmentDirectory) {
+        this.appointmentDirectory = appointmentDirectory;
+    }
+
+    
+    
     public BeneficiaryDirectory getBeneficiaryDirectory() {
         if(beneficiaryDirectory == null){
             this.beneficiaryDirectory = new BeneficiaryDirectory();
@@ -196,6 +213,7 @@ public class EcoSystem extends Organization{
        aefiManagerDirectory = new AEFIManagerDirectory();
        vaccinatorDirectory = new VaccinatorDirectory();
        beneficiaryDirectory = new BeneficiaryDirectory();
+       appointmentDirectory = new AppointmentDirectory();
     }
 
     

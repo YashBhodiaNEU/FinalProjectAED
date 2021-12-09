@@ -6,13 +6,14 @@ package Business.VaccinationSession;
 
 import Business.AEFIManager.AEFIManager;
 import Business.SessionManagers.SessionManager;
+import Business.VaccinationCenter.VaccinationCenter;
 import java.util.Date;
 
 /**
  *
  * @author Karan
  */
-public class VaccinationSession {
+public class VaccinationSession{
     private String sessionName;
     private String sessionDate;
     private float startTime;
@@ -35,9 +36,8 @@ public class VaccinationSession {
         this.vaccineName = vaccineName;
         this.availableDoses = availableDoses;
         this.centerName = centerName;
-
     }
-
+    
     public String getCenterName() {
         return centerName;
     }
