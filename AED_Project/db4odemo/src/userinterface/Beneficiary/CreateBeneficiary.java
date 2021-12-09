@@ -175,7 +175,7 @@ public class CreateBeneficiary extends javax.swing.JPanel {
         ecosystem.getBeneficiaryDirectory().addBeneficiary(name, age, contact, status);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(uname, pass, employee, new BeneficiaryRole());
-        JOptionPane.showMessageDialog(null, "Customer Profile Created");
+        JOptionPane.showMessageDialog(null, "Beneficiary Profile Created");
     }//GEN-LAST:event_btnCreateActionPerformed
 
 
