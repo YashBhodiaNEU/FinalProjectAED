@@ -6,8 +6,10 @@ package userinterface.FederalGovernment;
 
 import Business.AEFIManager.AEFIManagerDirectory;
 import Business.Beneficiary.BeneficiaryDirectory;
+import Business.ColdChainSupplier.ColdChainSupplier;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
+import Business.FederalGovernment.FederalGovernment;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
@@ -16,6 +18,7 @@ import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -27,8 +30,18 @@ public class FederalGovernmentWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form FederalGovernmentWorkArea
      */
+    private UserAccount userAccount;
+    private JPanel userProcessContainer;
+    private FederalGovernmentDirectory federalGovernmentDirectory;
+    private VaccineManufacturerDirectory vaccineManufacturerDirectory;
+    private EcoSystem ecosystem;
     public FederalGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory,  AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccinationSessionDirectory, BeneficiaryDirectory beneficiaryDirectory) {
         initComponents();
+        this.ecosystem = ecosystem;
+        this.userAccount = account;
+        this.userProcessContainer = userProcessContainer;
+        this.federalGovernmentDirectory = federalGovernmentDirectory;
+        this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
     }
 
     /**
@@ -40,30 +53,43 @@ public class FederalGovernmentWorkArea extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        btnRequest = new javax.swing.JButton();
 
-        jLabel1.setText("Federal Government admin role");
+        btnRequest.setText("Request Vaccines");
+        btnRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jLabel1)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(btnRequest)
+                .addContainerGap(455, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel1)
-                .addContainerGap(381, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(btnRequest)
+                .addContainerGap(406, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
+        // TODO add your handling code here:
+        VaccineRequests vr = new VaccineRequests(userProcessContainer, federalGovernmentDirectory,vaccineManufacturerDirectory, ecosystem, userAccount);
+        userProcessContainer.add("BookNewAppointment",vr);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer); 
+    }//GEN-LAST:event_btnRequestActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnRequest;
     // End of variables declaration//GEN-END:variables
 }

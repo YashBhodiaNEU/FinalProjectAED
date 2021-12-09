@@ -3,21 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/StateGovernment/ManageAllVaccinationCenters.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/SessionManager/SessionManagerWorkArea.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/Vaccinator/VaccinatorWorkArea.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/AEFIManager/AEFIManagerWorkArea.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/VaccinationSession/VaccinationSession.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/StateGovernment/UpdateVaccinationCenter.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/StateGovernment/StateGovernmentWorkArea.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/StateGovernment/CreateVaccinationCenter.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/Beneficiary/BeneficiaryDirectory.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/Beneficiary/CreateBeneficiary.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/Beneficiary/Beneficiary.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/AppointmentBooking/AppointmentDirectory.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/Beneficiary/BookVaccinationAppointment.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/Business/AppointmentBooking/BookAppointment.java</file>
-            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/VaccinationCenter/VaccinationCenterWorkArea.java</file>
+            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/FederalGovernment/VaccineRequests.java</file>
+            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/VaccineManufacturer/ManufacturerWorkArea.java</file>
+            <file>file:/C:/Users/Karan/Desktop/AED%20Project/AED_Project/db4odemo/src/userinterface/FederalGovernment/FederalGovernmentWorkArea.java</file>
         </group>
     </open-files>
 </project-private>
