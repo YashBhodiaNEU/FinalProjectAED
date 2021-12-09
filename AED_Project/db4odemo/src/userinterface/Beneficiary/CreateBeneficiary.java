@@ -10,6 +10,7 @@ import Business.Employee.Employee;
 import Business.Role.BeneficiaryRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -139,16 +140,42 @@ public class CreateBeneficiary extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        if(txtName.getText().isEmpty() || txtAge.getText().isEmpty() || txtContact.getText().isEmpty() || txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
         String name = txtName.getText();
+        boolean flag ;
+
+        flag = name.matches("^[a-zA-Z]+$");
+
+        if(flag == false) {
+            JOptionPane.showMessageDialog(null, "First name cannot have integer values");
+            return;
+        }
+        
         String age = txtAge.getText();
+        flag = age.matches("^[0-9]+$");
+        if(!flag) {
+            JOptionPane.showMessageDialog(null, "Age must have digits only");
+            return;
+        }
+        
         String contact = txtContact.getText();
+        flag = contact.matches("^[0-9]+$");
+        if(!flag) {
+            JOptionPane.showMessageDialog(null, "Phone Number must have digits only");
+            return;
+        }
         String uname = txtUserName.getText();
         String pass = txtPassword.getText();
         String status = "Not Vaccinated";
+         
         
         ecosystem.getBeneficiaryDirectory().addBeneficiary(name, age, contact, status);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(uname, pass, employee, new BeneficiaryRole());
+        JOptionPane.showMessageDialog(null, "Customer Profile Created");
     }//GEN-LAST:event_btnCreateActionPerformed
 
 
