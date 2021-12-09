@@ -218,15 +218,27 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
         Beneficiary beneficiary = ecosystem.getBeneficiaryDirectory().getBeneficiary(userAccount.getEmployee().getName());
         VaccinationSession vs = (VaccinationSession)tblSessions.getValueAt(selectedRow, 0);
         BookAppointment ba = ecosystem.getAppointmentDirectory().newAppointment();
-        String status = "Appointment Booked";
-        int doseNumber = 1;
         
+
         ba.setAppointmentID(String.valueOf(i++));
         ba.setBeneficiary(beneficiary);
         ba.setVaccinationSession(vs);
-        ba.setAppointmentStatus(status);
-        ba.setDoseNumber(doseNumber);
         
+        //System.out.println(ba.getBeneficiary().getBeneficiaryDoseNumber());
+        if(beneficiary.getStatus() == "Not Vaccinated"){
+            ba.setDoseNumber(1);
+            String status = "Appointment Booked";
+            ba.setAppointmentStatus(status);
+        }
+        else if(beneficiary.getStatus() == "Partially Vaccinated"){
+            ba.setDoseNumber(2);
+            String status = "Appointment Booked";
+            ba.setAppointmentStatus(status);
+        }
+        else{
+            //Display you are fully Vaccinated
+        }
+
         
         populateAppointmentTable();
         btnBookAppointment.setEnabled(false);
