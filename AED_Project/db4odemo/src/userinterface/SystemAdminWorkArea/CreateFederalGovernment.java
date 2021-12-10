@@ -11,6 +11,7 @@ import Business.Role.FederalGovernmentRole;
 import Business.Role.VaccineManufacturerRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -201,6 +202,10 @@ public class CreateFederalGovernment extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        if(txtName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtStock.getText().isEmpty() || txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
         String username = txtUserName.getText();
         String password = txtPassword.getText();
         String name = txtName.getText();
@@ -211,6 +216,7 @@ public class CreateFederalGovernment extends javax.swing.JPanel {
         
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(username, password, employee, new FederalGovernmentRole());
+        JOptionPane.showMessageDialog(null, "Federal Government Profile Created");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

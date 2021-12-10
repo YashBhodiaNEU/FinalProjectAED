@@ -13,13 +13,23 @@ public class Beneficiary {
     private String beneficiaryName;
     private String beneficiaryAge;
     private String beneficiaryPhoneNumber;
+    private String status;
     
-    public Beneficiary(String beneficiaryName, String beneficiaryAge, String beneficiaryPhoneNumber){
+    public Beneficiary(String beneficiaryName, String beneficiaryAge, String beneficiaryPhoneNumber, String status){
         this.beneficiaryName = beneficiaryName;
         this.beneficiaryAge = beneficiaryAge;
         this.beneficiaryPhoneNumber = beneficiaryPhoneNumber;
+        this.status = status;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+        
     public String getBeneficiaryName() {
         return beneficiaryName;
     }

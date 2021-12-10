@@ -17,6 +17,7 @@ import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
+import Business.VaccineRequestFTVM.VaccineRequestFTVMDirectory;
 import java.util.ArrayList;
 
 /**
@@ -37,8 +38,9 @@ public class EcoSystem extends Organization{
     private VaccinationSessionDirectory vaccineSessionDirectory;
     private BeneficiaryDirectory beneficiaryDirectory;
     private AppointmentDirectory appointmentDirectory;
+    private VaccineRequestFTVMDirectory requestFTVMDirectory;
     
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccineSessionDirectory, BeneficiaryDirectory beneficiaryDirectory, AppointmentDirectory appointmentDirectory) {
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccineSessionDirectory, BeneficiaryDirectory beneficiaryDirectory, AppointmentDirectory appointmentDirectory, VaccineRequestFTVMDirectory requestFTVMDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
         this.stateGovernmentDirectory = stateGovernmentDirectory;
@@ -50,8 +52,22 @@ public class EcoSystem extends Organization{
         this.vaccineSessionDirectory = vaccineSessionDirectory;
         this.beneficiaryDirectory = beneficiaryDirectory;
         this.appointmentDirectory = appointmentDirectory;
+        this.requestFTVMDirectory = requestFTVMDirectory;
     }
 
+    public VaccineRequestFTVMDirectory getRequestFTVMDirectory() {
+        if(requestFTVMDirectory == null){
+            this.requestFTVMDirectory = new VaccineRequestFTVMDirectory();
+        }
+        return requestFTVMDirectory;
+    }
+
+    public void setRequestFTVMDirectory(VaccineRequestFTVMDirectory requestFTVMDirectory) {
+        this.requestFTVMDirectory = requestFTVMDirectory;
+    }
+
+    
+    
     public AppointmentDirectory getAppointmentDirectory() {
         
         if(appointmentDirectory == null){
@@ -214,6 +230,7 @@ public class EcoSystem extends Organization{
        vaccinatorDirectory = new VaccinatorDirectory();
        beneficiaryDirectory = new BeneficiaryDirectory();
        appointmentDirectory = new AppointmentDirectory();
+       requestFTVMDirectory = new VaccineRequestFTVMDirectory();
     }
 
     

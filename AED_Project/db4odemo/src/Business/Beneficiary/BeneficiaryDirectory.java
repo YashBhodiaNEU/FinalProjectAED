@@ -34,8 +34,8 @@ public class BeneficiaryDirectory {
         return null;
     }
     
-    public Beneficiary addBeneficiary(String beneficiaryName, String beneficiaryAge, String beneficiaryPhoneNumber){
-        Beneficiary sm = new Beneficiary(beneficiaryName, beneficiaryAge, beneficiaryPhoneNumber);
+    public Beneficiary addBeneficiary(String beneficiaryName, String beneficiaryAge, String beneficiaryPhoneNumber, String status){
+        Beneficiary sm = new Beneficiary(beneficiaryName, beneficiaryAge, beneficiaryPhoneNumber, status);
         beneficiaryDirectory.add(sm);
         return sm;
     }

@@ -14,6 +14,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.VaccinationSession.VaccinationSession;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
@@ -52,7 +53,7 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
         this.vaccinatorDirectory = vaccinatorDirectory;
         this.vaccinationSessionDirectory = vaccinationSessionDirectory;
         this.beneficiaryDirectory = beneficiaryDirectory;
-        populateAppointmentTable();
+        populateSessionInfo();
     }
 
     /**
@@ -69,8 +70,8 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
         btnManageVaccinators = new javax.swing.JButton();
         btnManageAEFIManagers = new javax.swing.JButton();
         btnManageVaccinationSessions = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblAppointment = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSessionInfo = new javax.swing.JTable();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Vaccination Center Work Area");
@@ -103,20 +104,18 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
             }
         });
 
-        tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
+        tblSessionInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Appointment ID", "Beneficiary", "Session", "Dose", "Status"
+                "Sessions", "Available Doses"
             }
         ));
-        jScrollPane2.setViewportView(tblAppointment);
+        jScrollPane1.setViewportView(tblSessionInfo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -125,24 +124,22 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnManageSessionManager, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnManageVaccinators, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnManageAEFIManagers, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnManageVaccinationSessions)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2)))
-                .addContainerGap())
+                        .addComponent(btnManageSessionManager, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnManageVaccinators, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnManageAEFIManagers, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnManageVaccinationSessions)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,24 +152,21 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
                     .addComponent(btnManageVaccinators)
                     .addComponent(btnManageAEFIManagers)
                     .addComponent(btnManageVaccinationSessions))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(481, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    public void populateAppointmentTable(){
-        DefaultTableModel dtm = (DefaultTableModel) tblAppointment.getModel();
+ 
+    public void populateSessionInfo(){
+        DefaultTableModel dtm = (DefaultTableModel) tblSessionInfo.getModel();
         dtm.setRowCount(0);
-        for (BookAppointment ba : ecosystem.getAppointmentDirectory().getAppointmentDirectory()){
-            if(userAccount.getEmployee().getName().equalsIgnoreCase(ba.getVaccinationSession().getCenterName()) && ba.getAppointmentStatus().toString().equalsIgnoreCase("Appointment Booked")){
-                 Object [] row = new Object[5];
-                 row[0] = ba;
-                 row[1] = ba.getBeneficiary().getBeneficiaryName();
-                 row[2] = ba.getVaccinationSession().getSessionName();
-                 row[3] = ba.getDoseNumber();
-                 row[4] = ba.getAppointmentStatus();
-                 dtm.addRow(row);
+        for (VaccinationSession vs : ecosystem.getVaccineSessionDirectory().getVaccinationSessionDirectory()){
+            if(userAccount.getEmployee().getName().equalsIgnoreCase(vs.getCenterName())){
+                Object [] row = new Object[2];
+                row[0] = vs.getSessionName();
+                row[1] = vs.getAvailableDoses();
+                dtm.addRow(row);
             }
         }
     }
@@ -216,7 +210,7 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton btnManageVaccinationSessions;
     private javax.swing.JButton btnManageVaccinators;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tblAppointment;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblSessionInfo;
     // End of variables declaration//GEN-END:variables
 }
