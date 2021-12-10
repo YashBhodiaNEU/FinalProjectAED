@@ -17,7 +17,10 @@ import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import Business.VaccineRequestFTVM.VaccineRequestFTVM;
+<<<<<<< HEAD
 import Business.VaccineRequestSTF.VaccineRequestSTF;
+=======
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -40,8 +43,11 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
         this.userAccount = account;
         populateRequestTable();
         populateRequestDeliveredTable();
+<<<<<<< HEAD
         populateStateGovVaccineRequest();
         populateStateGovVaccineProcess();
+=======
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
     }
     
     public void populateRequestTable(){
@@ -74,6 +80,7 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
                dtm.addRow(row);
             }
         }
+<<<<<<< HEAD
     }
     
     public void populateStateGovVaccineRequest(){
@@ -107,6 +114,8 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
                dtm.addRow(row);
             }
         }
+=======
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
     }
 
     /**
@@ -124,6 +133,7 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
         btnDelivered = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblVaccineRequestsDelivered = new javax.swing.JTable();
+<<<<<<< HEAD
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -131,6 +141,8 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         tblStateGovernmentRequest = new javax.swing.JTable();
         btnDelivered2 = new javax.swing.JButton();
+=======
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Vaccine Orders in Pipeline");
@@ -147,6 +159,7 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
             }
         ));
         jScrollPane1.setViewportView(tblVaccineRequests);
+<<<<<<< HEAD
 
         btnDelivered.setText("Delivered");
         btnDelivered.addActionListener(new java.awt.event.ActionListener() {
@@ -204,6 +217,28 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
                 btnDelivered2ActionPerformed(evt);
             }
         });
+=======
+
+        btnDelivered.setText("Delivered");
+        btnDelivered.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeliveredActionPerformed(evt);
+            }
+        });
+
+        tblVaccineRequestsDelivered.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Request ID", "Vaccine Manufacturer", "Federal Government", "Number of Doses", "Request Status"
+            }
+        ));
+        jScrollPane2.setViewportView(tblVaccineRequestsDelivered);
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -217,10 +252,18 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+=======
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(181, 181, 181))
+                    .addGroup(layout.createSequentialGroup()
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnDelivered)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,20 +273,28 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
                             .addComponent(btnDelivered2)
                             .addComponent(jLabel2))
                         .addContainerGap(69, Short.MAX_VALUE))))
+=======
+                        .addGap(0, 68, Short.MAX_VALUE))))
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addComponent(jLabel1)
+<<<<<<< HEAD
                 .addGap(4, 4, 4)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelivered)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -253,6 +304,9 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
+=======
+                .addContainerGap(181, Short.MAX_VALUE))
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -266,6 +320,7 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
         populateRequestTable();
     }//GEN-LAST:event_btnDeliveredActionPerformed
 
+<<<<<<< HEAD
     private void btnDelivered2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelivered2ActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblStateGovernmentRequest.getSelectedRow();
@@ -289,6 +344,14 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable tblStateGovernmentProcess;
     private javax.swing.JTable tblStateGovernmentRequest;
+=======
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelivered;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
     private javax.swing.JTable tblVaccineRequests;
     private javax.swing.JTable tblVaccineRequestsDelivered;
     // End of variables declaration//GEN-END:variables

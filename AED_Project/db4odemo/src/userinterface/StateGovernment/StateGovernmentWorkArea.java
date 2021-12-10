@@ -163,6 +163,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnManageVaccinationCenters))
@@ -192,6 +193,11 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnRequest1)))))
                 .addContainerGap(16, Short.MAX_VALUE))
+=======
+                    .addComponent(jLabel1)
+                    .addComponent(btnManageVaccinationCenters))
+                .addContainerGap(451, Short.MAX_VALUE))
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,6 +206,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnManageVaccinationCenters)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -220,6 +227,9 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(135, Short.MAX_VALUE))
+=======
+                .addContainerGap(378, Short.MAX_VALUE))
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
         );
     }// </editor-fold>//GEN-END:initComponents
 

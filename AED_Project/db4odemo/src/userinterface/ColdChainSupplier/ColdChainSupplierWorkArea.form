@@ -16,15 +16,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
           </Group>
+=======
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+<<<<<<< HEAD
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnDelivered" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="587" max="-2" attributes="0"/>
@@ -41,6 +45,19 @@
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="69" max="32767" attributes="0"/>
+=======
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnDelivered" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="0" min="-2" pref="587" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" min="-2" pref="587" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
                   </Group>
               </Group>
           </Group>
@@ -51,14 +68,19 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+=======
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
               <Component id="jScrollPane1" min="-2" pref="95" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnDelivered" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="95" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -68,6 +90,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane3" min="-2" pref="95" max="-2" attributes="0"/>
               <EmptySpace pref="15" max="32767" attributes="0"/>
+=======
+              <EmptySpace pref="181" max="32767" attributes="0"/>
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,6 +104,7 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Vaccine Orders in Pipeline"/>
+<<<<<<< HEAD
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -262,10 +288,128 @@
     <Component class="javax.swing.JButton" name="btnDelivered2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Delivered"/>
+=======
+>>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelivered2ActionPerformed"/>
       </Events>
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tblVaccineRequests">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="5" rowCount="4">
+                <Column editable="true" title="Request ID" type="java.lang.Object"/>
+                <Column editable="true" title="Vaccine Manufacturer" type="java.lang.Object"/>
+                <Column editable="true" title="Federal Government" type="java.lang.Object"/>
+                <Column editable="true" title="Number of Doses" type="java.lang.Object"/>
+                <Column editable="true" title="Request Status" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="btnDelivered">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Delivered"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeliveredActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tblVaccineRequestsDelivered">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="5" rowCount="4">
+                <Column editable="true" title="Request ID" type="java.lang.Object"/>
+                <Column editable="true" title="Vaccine Manufacturer" type="java.lang.Object"/>
+                <Column editable="true" title="Federal Government" type="java.lang.Object"/>
+                <Column editable="true" title="Number of Doses" type="java.lang.Object"/>
+                <Column editable="true" title="Request Status" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>
