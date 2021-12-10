@@ -72,7 +72,7 @@ public class CreateStateGovernment extends javax.swing.JPanel {
 
         jLabel5.setText("State Gove Reserve Addres");
 
-        jLabel6.setText("Fed Name");
+        jLabel6.setText("Fed Gov Name");
 
         jLabel7.setText("Current Stock");
 
