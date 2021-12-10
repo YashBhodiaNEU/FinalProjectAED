@@ -18,19 +18,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-=======
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
->>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="587" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
                               <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -68,23 +60,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   </Group>
-=======
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnRequest1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNumberOfDoses" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboManufacturer" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboColdChain" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
->>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -93,15 +68,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-=======
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
->>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="comboManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -115,7 +84,6 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="comboColdChain" alignment="3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                   <Component id="btnPlaceOrder" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -131,14 +99,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="95" max="-2" attributes="0"/>
               <EmptySpace pref="124" max="32767" attributes="0"/>
-=======
-              </Group>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Component id="btnRequest1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="95" max="-2" attributes="0"/>
-              <EmptySpace pref="358" max="32767" attributes="0"/>
->>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
           </Group>
       </Group>
     </DimensionLayout>
@@ -198,7 +158,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
-<<<<<<< HEAD
       <Properties>
         <Property name="text" type="java.lang.String" value="Number of Doses"/>
       </Properties>
@@ -226,35 +185,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPlaceOrderActionPerformed"/>
-=======
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Number of Doses"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtNumberOfDoses">
-    </Component>
-    <Component class="javax.swing.JComboBox" name="comboManufacturer">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnRequest1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Place the Order"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRequest1ActionPerformed"/>
->>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -262,7 +192,6 @@
         <Property name="text" type="java.lang.String" value="Cold Chain Supplier"/>
       </Properties>
     </Component>
-<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="--------------------------------------------------------------------------------------------------------------------------------------------------"/>
@@ -404,7 +333,5 @@
         </Component>
       </SubComponents>
     </Container>
-=======
->>>>>>> 0d8ad948cff11e14e903dfadeea6c248830cb0db
   </SubComponents>
 </Form>
