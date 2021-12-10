@@ -178,6 +178,10 @@ public class UpdateVaccineManufacturer extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        if(txtManufacturerName.getText().isEmpty() || txtVaccineName.getText().isEmpty() || txtCurrentStock.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
         String name = txtManufacturerName.getText();
         String vname = txtVaccineName.getText();
         long stock = Integer.parseInt(txtCurrentStock.getText());
