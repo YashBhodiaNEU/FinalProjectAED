@@ -10,6 +10,7 @@ import Business.Role.VaccinatorRole;
 import Business.UserAccount.UserAccount;
 import Business.Vaccinator.VaccinatorDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -141,6 +142,10 @@ public class CreateVaccinator extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        if(txtName.getText().isEmpty() || txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtEmailID.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
         String uname = txtUserName.getText();
         String pass = txtPassword.getText();
         String name = txtName.getText();
@@ -150,6 +155,7 @@ public class CreateVaccinator extends javax.swing.JPanel {
         ecosystem.getVaccinatorDirectory().addVaccinator(name, email, centerName);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(uname, pass, employee, new VaccinatorRole());
+        JOptionPane.showMessageDialog(null, "Vaccinator Profile Created");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

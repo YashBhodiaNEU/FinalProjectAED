@@ -14,6 +14,7 @@ import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.Vaccinator;
 import java.awt.CardLayout;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -247,6 +248,10 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+    if(txtName.getText().isEmpty() || txtDate.getText().isEmpty() || txtAvailableDoses.getText().isEmpty() || txtStartTime.getText().isEmpty() || txtEndTime.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
     String name = txtName.getText();
     String date = txtDate.getText();
     float stime = Float.parseFloat(txtStartTime.getText()); 
@@ -258,6 +263,7 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
     double doses = Integer.parseInt(txtAvailableDoses.getText());
     String cname = userAccount.getEmployee().getName();
     ecosystem.getVaccineSessionDirectory().addVaccinationSession(name, date, stime, etime, mname, aname, vaccinator, vaccine, doses, cname);
+    JOptionPane.showMessageDialog(null, "Vaccine Session Created");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
