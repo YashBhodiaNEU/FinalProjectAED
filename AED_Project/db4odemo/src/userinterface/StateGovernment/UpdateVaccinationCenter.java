@@ -154,6 +154,10 @@ public class UpdateVaccinationCenter extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        if(txtVaccinationCenter.getText().isEmpty() || txtVaccinationCenterAddress.getText().isEmpty() || txtvaccinationCenterZipCode.getText().isEmpty()||txtBalanceDoses.getText().isEmpty() ||txtContact.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
         String name = txtVaccinationCenter.getText();
         String address = txtVaccinationCenterAddress.getText();
         String zip = txtvaccinationCenterZipCode.getText();

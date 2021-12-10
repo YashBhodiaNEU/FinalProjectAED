@@ -162,6 +162,10 @@ public class UpdateStateGovernment extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        if(txtName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtStock.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
         String name = txtName.getText();
         String address = txtAddress.getText();
         long stock = Integer.parseInt(txtStock.getText());
