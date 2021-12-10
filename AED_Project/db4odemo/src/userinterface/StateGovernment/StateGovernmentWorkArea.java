@@ -6,18 +6,23 @@ package userinterface.StateGovernment;
 
 import Business.AEFIManager.AEFIManagerDirectory;
 import Business.Beneficiary.BeneficiaryDirectory;
+import Business.ColdChainSupplier.ColdChainSupplier;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.SessionManagers.SessionManagerDirectory;
+import Business.StateGovernment.StateGovernment;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
+import Business.VaccineManufacturer.VaccineManufacturer;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
+import Business.VaccineRequestSTF.VaccineRequestSTF;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,6 +37,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
     EcoSystem ecosystem;
     VaccinationCenterDirectory vaccinationCenterDirectory;
     UserAccount userAccount;
+    private int i=1;
     
     public StateGovernmentWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, FederalGovernmentDirectory federalGovernmentDirectory, VaccineManufacturerDirectory vaccineManufacturerDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccinationSessionDirectory, BeneficiaryDirectory beneficiaryDirectory) {
     initComponents();
@@ -39,8 +45,44 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
     this.ecosystem = ecosystem;
     this.userAccount = account;
     this.vaccinationCenterDirectory = vaccinationCenterDirectory;
+    selectManufacturer();
+    selectColdChain();
+    populateOrderTable();
     }
 
+    public void selectManufacturer(){
+        comboManufacturer.removeAllItems();
+        comboManufacturer.addItem("Select Vaccine Manufacturer");
+        for(VaccineManufacturer vm: ecosystem.getVaccineManufacturerDirectory().getVaccineManufacturerDirectory()){
+                comboManufacturer.addItem(vm.getManufacturerName());
+        }
+    }
+    
+    public void selectColdChain(){
+        comboColdChain.removeAllItems();
+        comboColdChain.addItem("Select Cold Chain....");
+        for(ColdChainSupplier vm: ecosystem.getColdChainSupplierDirectory().getColdChainSupplierDirectory()){
+                comboColdChain.addItem(vm.getColdChainSupplierName());
+        }
+    }
+    
+    public void populateOrderTable(){
+        DefaultTableModel dtm = (DefaultTableModel) tblVaccineRequests.getModel();
+        dtm.setRowCount(0);
+        for(VaccineRequestSTF vr : ecosystem.getRequestSTFDirectory().getRequestSTFDirectory()){
+            //System.out.println(v.getFederalGovernment().getFedName());
+            if(userAccount.getEmployee().getName().equalsIgnoreCase(vr.getStateGovernment())){
+               Object [] row = new Object[6];
+               row[0] = vr;
+               row[1] = vr.getVaccineManufacturer();
+               row[2] = vr.getColdChainSupplier();
+               row[3] = vr.getNumberOfDoses();
+               row[4] = vr.getVaccineRequestStatus();
+               row[5] = vr.getFedName();
+               dtm.addRow(row);
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,6 +94,17 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         btnManageVaccinationCenters = new javax.swing.JButton();
+        btnRequest1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        comboColdChain = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblVaccineRequests = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtNumberOfDoses = new javax.swing.JTextField();
+        comboManufacturer = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel1.setText("State Government Admin Role");
 
@@ -62,25 +115,111 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
             }
         });
 
+        btnRequest1.setText("Place the Order");
+        btnRequest1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequest1ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Cold Chain Supplier");
+
+        comboColdChain.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        tblVaccineRequests.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Request ID", "Vaccine Manufacturer", "Cold Chain", "Number of Doses", "Request Status", "Fed"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, true, true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblVaccineRequests);
+
+        jLabel2.setText("Vaccine Manufacturer");
+
+        jLabel3.setText("Number of Doses");
+
+        comboManufacturer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel5.setText("Place Vaccine Request with Federal Government");
+
+        jLabel6.setText("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(btnManageVaccinationCenters))
-                .addContainerGap(217, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnManageVaccinationCenters))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addGap(135, 135, 135)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNumberOfDoses)
+                                    .addComponent(comboManufacturer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboColdChain, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnRequest1)))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnManageVaccinationCenters)
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(comboManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNumberOfDoses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(comboColdChain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRequest1))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(135, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -92,9 +231,37 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
     layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageVaccinationCentersActionPerformed
 
+    private void btnRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequest1ActionPerformed
+        // TODO add your handling code here:
+        StateGovernment sg = ecosystem.getStateGovernmentDirectory().getStateGovernment(userAccount.getEmployee().getName());
+        
+        //VaccineRequestSTF vr = ecosystem.getRequestFTVMDirectory().newVaccineRequest();
+        VaccineRequestSTF vr = ecosystem.getRequestSTFDirectory().newVaccineRequest();
+        vr.setVaccineRequestID(String.valueOf(i++));
+        vr.setStateGovernment(sg.getStateName());
+        vr.setVaccineManufacturer(comboManufacturer.getSelectedItem().toString());
+        vr.setColdChainSupplier(comboColdChain.getSelectedItem().toString());
+        vr.setNumberOfDoses(Integer.parseInt(txtNumberOfDoses.getText()));
+        vr.setVaccineRequestStatus("Order Placed");
+        vr.setFedName(sg.getFedName());
+        //System.out.println("Order Placed");
+        populateOrderTable();
+    }//GEN-LAST:event_btnRequest1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageVaccinationCenters;
+    private javax.swing.JButton btnRequest1;
+    private javax.swing.JComboBox<String> comboColdChain;
+    private javax.swing.JComboBox<String> comboManufacturer;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblVaccineRequests;
+    private javax.swing.JTextField txtNumberOfDoses;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,6 +13,7 @@ import Business.VaccinationCenter.VaccinationCenter;
 import Business.VaccinationSession.VaccinationSession;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -236,7 +237,7 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
             ba.setAppointmentStatus(status);
         }
         else{
-            //Display you are fully Vaccinated
+            JOptionPane.showMessageDialog(null, "You are Fully Vaccinated");
         }
 
         
