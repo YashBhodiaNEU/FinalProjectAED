@@ -11,6 +11,7 @@ import Business.StateGovernment.StateGovernment;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.VaccineManufacturer.VaccineManufacturer;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -184,6 +185,7 @@ public class ManageAllStateGovernments extends javax.swing.JPanel {
         StateGovernment vm = (StateGovernment) tblStateGovernment.getValueAt(selectedRow, 0);
         stateGovernmentDirectory.removeStateGovernment(vm);
         populateTable();
+        JOptionPane.showMessageDialog(null, "Entry deleted");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 

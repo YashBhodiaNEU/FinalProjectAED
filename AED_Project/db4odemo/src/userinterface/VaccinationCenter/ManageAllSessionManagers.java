@@ -10,6 +10,7 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import userinterface.StateGovernment.CreateVaccinationCenter;
@@ -175,6 +176,7 @@ public class ManageAllSessionManagers extends javax.swing.JPanel {
         SessionManager vm = (SessionManager) tblSessionManager.getValueAt(selectedRow, 0);
         sessionManagerDirectory.removeSessionManager(vm);
         populateTable();
+        JOptionPane.showMessageDialog(null, "Entry deleted");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed

@@ -9,6 +9,7 @@ import Business.UserAccount.UserAccount;
 import Business.Vaccinator.Vaccinator;
 import Business.Vaccinator.VaccinatorDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -171,6 +172,7 @@ public class ManageAllVaccinators extends javax.swing.JPanel {
         Vaccinator vm = (Vaccinator) tblVaccinator.getValueAt(selectedRow, 0);
         vaccinatorDirectory.removeVaccinator(vm);
         populateTable();
+        JOptionPane.showMessageDialog(null, "Entry deleted");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed

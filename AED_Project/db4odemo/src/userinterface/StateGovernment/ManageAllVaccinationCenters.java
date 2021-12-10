@@ -9,6 +9,7 @@ import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenter;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import userinterface.SystemAdminWorkArea.CreateColdChainSupplier;
@@ -175,6 +176,7 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
         VaccinationCenter vm = (VaccinationCenter) tblVaccinationCenters.getValueAt(selectedRow, 0);
         vaccinationCenterDirectory.removeVaccinationCenter(vm);
         populateTable();
+        JOptionPane.showMessageDialog(null, "Entry deleted");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
