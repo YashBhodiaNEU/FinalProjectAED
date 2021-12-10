@@ -12,6 +12,7 @@ import Business.UserAccount.UserAccount;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -193,9 +194,13 @@ public class CreateVaccineManufacturer extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        if(txtManufacturerName.getText().isEmpty() || txtVaccineName.getText().isEmpty() || txtCurrentStock.getText().isEmpty() || txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
         String name = txtManufacturerName.getText();
         String vname = txtVaccineName.getText();
-        double stock = Integer.parseInt(txtCurrentStock.getText());
+        long stock = Integer.parseInt(txtCurrentStock.getText());
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         
@@ -203,6 +208,7 @@ public class CreateVaccineManufacturer extends javax.swing.JPanel {
         
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(username, password, employee, new VaccineManufacturerRole());
+        JOptionPane.showMessageDialog(null, "Vaccine Manufacture Profile Created");
     }//GEN-LAST:event_btnCreateActionPerformed
 
 

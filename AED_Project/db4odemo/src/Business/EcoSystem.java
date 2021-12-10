@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package Business;
-<<<<<<< HEAD
-=======
 import Business.AEFIManager.AEFIManagerDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+import Business.AppointmentBooking.AppointmentDirectory;
+import Business.Beneficiary.BeneficiaryDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.Role.Role;
@@ -15,11 +14,10 @@ import Business.Role.SystemAdminRole;
 import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
-<<<<<<< HEAD
-=======
+import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
+import Business.VaccineRequestFTVM.VaccineRequestFTVMDirectory;
 import java.util.ArrayList;
 
 /**
@@ -35,28 +33,78 @@ public class EcoSystem extends Organization{
     private ColdChainSupplierDirectory coldChainSupplierDirectory;
     private VaccinationCenterDirectory vaccinationCenterDirectory;
     private SessionManagerDirectory sessionManagerDirectory;
-<<<<<<< HEAD
-
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
-=======
     private AEFIManagerDirectory aefiManagerDirectory;
     private VaccinatorDirectory vaccinatorDirectory;
-
-    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+    private VaccinationSessionDirectory vaccineSessionDirectory;
+    private BeneficiaryDirectory beneficiaryDirectory;
+    private AppointmentDirectory appointmentDirectory;
+    private VaccineRequestFTVMDirectory requestFTVMDirectory;
+    
+    public EcoSystem(VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccineSessionDirectory, BeneficiaryDirectory beneficiaryDirectory, AppointmentDirectory appointmentDirectory, VaccineRequestFTVMDirectory requestFTVMDirectory) {
         this.vaccineManufacturerDirectory = vaccineManufacturerDirectory;
         this.federalGovernmentDirectory = federalGovernmentDirectory;
         this.stateGovernmentDirectory = stateGovernmentDirectory;
         this.coldChainSupplierDirectory = coldChainSupplierDirectory;
         this.vaccinationCenterDirectory = vaccinationCenterDirectory;
         this.sessionManagerDirectory = sessionManagerDirectory;
-<<<<<<< HEAD
-    }
-
-=======
         this.aefiManagerDirectory = aefiManagerDirectory;
         this.vaccinatorDirectory = vaccinatorDirectory;
+        this.vaccineSessionDirectory = vaccineSessionDirectory;
+        this.beneficiaryDirectory = beneficiaryDirectory;
+        this.appointmentDirectory = appointmentDirectory;
+        this.requestFTVMDirectory = requestFTVMDirectory;
     }
+
+    public VaccineRequestFTVMDirectory getRequestFTVMDirectory() {
+        if(requestFTVMDirectory == null){
+            this.requestFTVMDirectory = new VaccineRequestFTVMDirectory();
+        }
+        return requestFTVMDirectory;
+    }
+
+    public void setRequestFTVMDirectory(VaccineRequestFTVMDirectory requestFTVMDirectory) {
+        this.requestFTVMDirectory = requestFTVMDirectory;
+    }
+
+    
+    
+    public AppointmentDirectory getAppointmentDirectory() {
+        
+        if(appointmentDirectory == null){
+            this.appointmentDirectory = new AppointmentDirectory();
+        }
+        return appointmentDirectory;
+    }
+
+    public void setAppointmentDirectory(AppointmentDirectory appointmentDirectory) {
+        this.appointmentDirectory = appointmentDirectory;
+    }
+
+    
+    
+    public BeneficiaryDirectory getBeneficiaryDirectory() {
+        if(beneficiaryDirectory == null){
+            this.beneficiaryDirectory = new BeneficiaryDirectory();
+        }
+        return beneficiaryDirectory;
+    }
+
+    public void setBeneficiaryDirectory(BeneficiaryDirectory beneficiaryDirectory) {
+        this.beneficiaryDirectory = beneficiaryDirectory;
+    }
+    
+    public VaccinationSessionDirectory getVaccineSessionDirectory() {
+        if(vaccineSessionDirectory == null){
+            this.vaccineSessionDirectory = new VaccinationSessionDirectory();
+        }
+        return vaccineSessionDirectory;
+    }
+
+    public void setVaccineSessionDirectory(VaccinationSessionDirectory vaccineSessionDirectory) {
+        this.vaccineSessionDirectory = vaccineSessionDirectory;
+    }
+    
+    
 
     public VaccinatorDirectory getVaccinatorDirectory() {
         if(vaccinatorDirectory == null){
@@ -80,7 +128,6 @@ public class EcoSystem extends Organization{
         this.aefiManagerDirectory = aefiManagerDirectory;
     }
     
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
     public SessionManagerDirectory getSessionManagerDirectory() {
         if(sessionManagerDirectory == null){
             sessionManagerDirectory = new SessionManagerDirectory();
@@ -179,11 +226,11 @@ public class EcoSystem extends Organization{
        coldChainSupplierDirectory = new ColdChainSupplierDirectory();
        vaccinationCenterDirectory = new VaccinationCenterDirectory();
        sessionManagerDirectory = new SessionManagerDirectory();
-<<<<<<< HEAD
-=======
        aefiManagerDirectory = new AEFIManagerDirectory();
        vaccinatorDirectory = new VaccinatorDirectory();
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+       beneficiaryDirectory = new BeneficiaryDirectory();
+       appointmentDirectory = new AppointmentDirectory();
+       requestFTVMDirectory = new VaccineRequestFTVMDirectory();
     }
 
     

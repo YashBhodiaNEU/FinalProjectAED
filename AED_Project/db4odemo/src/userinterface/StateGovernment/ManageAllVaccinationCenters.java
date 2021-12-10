@@ -24,8 +24,9 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private EcoSystem ecosystem;
-    private VaccinationCenterDirectory vaccinationCenterDirectory;
     private UserAccount userAccount;
+    private VaccinationCenterDirectory vaccinationCenterDirectory;
+    
             
     public ManageAllVaccinationCenters(JPanel userProcessContainer, EcoSystem ecosystem, VaccinationCenterDirectory vaccinationCenterDirectory, UserAccount userAccount) {
         initComponents();
@@ -76,10 +77,25 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
         });
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -126,8 +142,6 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblVaccinationCenters.getModel();
         dtm.setRowCount(0);
         for(VaccinationCenter vc : ecosystem.getVaccinationCenterDirectory().getVaccinationCenterDirectory()){
-            System.out.println(userAccount.getEmployee().getName());
-            System.out.println();
             if(userAccount.getEmployee().getName().equalsIgnoreCase(vc.getStateGovName())){
             Object [] row = new Object[5];
             row[0] = vc;
@@ -147,6 +161,31 @@ public class ManageAllVaccinationCenters extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer); 
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblVaccinationCenters.getSelectedRow();
+        VaccinationCenter vm = (VaccinationCenter) tblVaccinationCenters.getValueAt(selectedRow, 0);
+        vaccinationCenterDirectory.removeVaccinationCenter(vm);
+        populateTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+       int selectedRow = tblVaccinationCenters.getSelectedRow();
+       VaccinationCenter vm = (VaccinationCenter)tblVaccinationCenters.getValueAt(selectedRow, 0);
+       UpdateVaccinationCenter edit = new UpdateVaccinationCenter(userProcessContainer, ecosystem, vaccinationCenterDirectory, vm);
+       userProcessContainer.add("UpdateVaccinationCenter", edit);
+       CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Karan
+ * @author yashb
  */
 public class SessionManagerDirectory {
     
@@ -41,7 +41,7 @@ public class SessionManagerDirectory {
         return sm;
     }
     
-    public void removeColdChainSupplier(SessionManager sm){
+    public void removeSessionManager(SessionManager sm){
         sessionManagerDirectory.remove(sm);
     }
     

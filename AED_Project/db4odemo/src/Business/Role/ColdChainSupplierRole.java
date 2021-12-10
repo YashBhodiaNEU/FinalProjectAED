@@ -4,10 +4,8 @@
  */
 package Business.Role;
 
-<<<<<<< HEAD
-=======
 import Business.AEFIManager.AEFIManagerDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+import Business.Beneficiary.BeneficiaryDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -15,10 +13,8 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
-<<<<<<< HEAD
-=======
+import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import javax.swing.JPanel;
 import userinterface.ColdChainSupplier.ColdChainSupplierWorkArea;
@@ -30,10 +26,6 @@ import userinterface.FederalGovernment.FederalGovernmentWorkArea;
  */
 public class ColdChainSupplierRole extends Role {
     @Override
-<<<<<<< HEAD
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory){
-        return new ColdChainSupplierWorkArea(userProcessContainer, account, ecosystem, federalGovernmentDirectory, vaccineManufacturerDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory);
-=======
     public JPanel createWorkArea(JPanel userProcessContainer, 
             UserAccount account, 
             EcoSystem ecosystem, 
@@ -44,8 +36,9 @@ public class ColdChainSupplierRole extends Role {
             VaccinationCenterDirectory vaccinationCenterDirectory, 
             SessionManagerDirectory sessionManagerDirectory, 
             AEFIManagerDirectory aefiManagerDirectory,
-            VaccinatorDirectory vaccinatorDirectory){
-        return new ColdChainSupplierWorkArea(userProcessContainer, account, ecosystem, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory, aefiManagerDirectory, vaccinatorDirectory);
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+            VaccinatorDirectory vaccinatorDirectory,
+            VaccinationSessionDirectory vaccinationSessionDirectory,
+            BeneficiaryDirectory beneficiaryDirectory){
+        return new ColdChainSupplierWorkArea(userProcessContainer, account, ecosystem, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory, aefiManagerDirectory, vaccinatorDirectory, vaccinationSessionDirectory,beneficiaryDirectory);
     }
 }

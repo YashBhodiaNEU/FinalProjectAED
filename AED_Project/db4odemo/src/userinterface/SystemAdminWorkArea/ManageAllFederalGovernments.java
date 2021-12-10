@@ -80,8 +80,18 @@ public class ManageAllFederalGovernments extends javax.swing.JPanel {
         });
 
         btnDelete.setText("Delete Federal Government");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -147,7 +157,28 @@ public class ManageAllFederalGovernments extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+       int selectedRow = tblFederalGovernment.getSelectedRow();
+       FederalGovernment vm = (FederalGovernment)tblFederalGovernment.getValueAt(selectedRow, 0);
+       UpdateFederalGovernment edit = new UpdateFederalGovernment(userProcessContainer, ecosystem, federalGovernmentDirectory, vm);
+       userProcessContainer.add("UpdateFederalGovernment", edit);
+       CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblFederalGovernment.getSelectedRow();
+        FederalGovernment fg = (FederalGovernment) tblFederalGovernment.getValueAt(selectedRow, 0);
+        federalGovernmentDirectory.removeFedGovernment(fg);
+        populateTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

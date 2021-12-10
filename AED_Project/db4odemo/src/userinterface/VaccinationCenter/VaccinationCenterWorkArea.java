@@ -4,10 +4,9 @@
  */
 package userinterface.VaccinationCenter;
 
-<<<<<<< HEAD
-=======
 import Business.AEFIManager.AEFIManagerDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+import Business.AppointmentBooking.BookAppointment;
+import Business.Beneficiary.BeneficiaryDirectory;
 import Business.ColdChainSupplier.ColdChainSupplierDirectory;
 import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernmentDirectory;
@@ -15,14 +14,15 @@ import Business.SessionManagers.SessionManagerDirectory;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
-<<<<<<< HEAD
-=======
+import Business.VaccinationSession.VaccinationSession;
+import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import userinterface.StateGovernment.ManageAllVaccinationCenters;
+import userinterface.VaccinationSession.ManageAllSessions;
 
 /**
  *
@@ -38,24 +38,22 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     EcoSystem ecosystem; 
     UserAccount userAccount;
     SessionManagerDirectory sessionManagerDirectory;
-<<<<<<< HEAD
-    public VaccinationCenterWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory) {
-=======
     AEFIManagerDirectory aefiManagerDirectory;
     VaccinatorDirectory vaccinatorDirectory;
+    VaccinationSessionDirectory vaccinationSessionDirectory;
+    BeneficiaryDirectory beneficiaryDirectory;
     
-    public VaccinationCenterWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory) {
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+    public VaccinationCenterWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, VaccineManufacturerDirectory vaccineManufacturerDirectory, FederalGovernmentDirectory federalGovernmentDirectory, StateGovernmentDirectory stateGovernmentDirectory, ColdChainSupplierDirectory coldChainSupplierDirectory, VaccinationCenterDirectory vaccinationCenterDirectory, SessionManagerDirectory sessionManagerDirectory, AEFIManagerDirectory aefiManagerDirectory, VaccinatorDirectory vaccinatorDirectory, VaccinationSessionDirectory vaccinationSessionDirectory, BeneficiaryDirectory beneficiaryDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.ecosystem = ecosystem;
         this.sessionManagerDirectory = sessionManagerDirectory;
-<<<<<<< HEAD
-=======
         this.aefiManagerDirectory = aefiManagerDirectory;
         this.vaccinatorDirectory = vaccinatorDirectory;
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+        this.vaccinationSessionDirectory = vaccinationSessionDirectory;
+        this.beneficiaryDirectory = beneficiaryDirectory;
+        populateSessionInfo();
     }
 
     /**
@@ -71,6 +69,9 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
         btnManageSessionManager = new javax.swing.JButton();
         btnManageVaccinators = new javax.swing.JButton();
         btnManageAEFIManagers = new javax.swing.JButton();
+        btnManageVaccinationSessions = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSessionInfo = new javax.swing.JTable();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Vaccination Center Work Area");
@@ -83,10 +84,6 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
         });
 
         btnManageVaccinators.setText("Manage Vaccinators");
-<<<<<<< HEAD
-
-        btnManageAEFIManagers.setText("Manage AEFI Managers");
-=======
         btnManageVaccinators.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageVaccinatorsActionPerformed(evt);
@@ -99,45 +96,81 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
                 btnManageAEFIManagersActionPerformed(evt);
             }
         });
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+
+        btnManageVaccinationSessions.setText("Manage Vaccination Sessions");
+        btnManageVaccinationSessions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageVaccinationSessionsActionPerformed(evt);
+            }
+        });
+
+        tblSessionInfo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Sessions", "Available Doses"
+            }
+        ));
+        jScrollPane1.setViewportView(tblSessionInfo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnManageSessionManager, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnManageVaccinators, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnManageAEFIManagers, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(299, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnManageSessionManager, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnManageVaccinators, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnManageAEFIManagers, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnManageVaccinationSessions)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnManageSessionManager)
+                    .addComponent(btnManageVaccinators)
+                    .addComponent(btnManageAEFIManagers)
+                    .addComponent(btnManageVaccinationSessions))
                 .addGap(18, 18, 18)
-                .addComponent(btnManageSessionManager)
-<<<<<<< HEAD
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageVaccinators)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageAEFIManagers)
-                .addContainerGap(283, Short.MAX_VALUE))
-=======
-                .addGap(13, 13, 13)
-                .addComponent(btnManageAEFIManagers)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageVaccinators)
-                .addContainerGap(281, Short.MAX_VALUE))
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(481, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+ 
+    public void populateSessionInfo(){
+        DefaultTableModel dtm = (DefaultTableModel) tblSessionInfo.getModel();
+        dtm.setRowCount(0);
+        for (VaccinationSession vs : ecosystem.getVaccineSessionDirectory().getVaccinationSessionDirectory()){
+            if(userAccount.getEmployee().getName().equalsIgnoreCase(vs.getCenterName())){
+                Object [] row = new Object[2];
+                row[0] = vs.getSessionName();
+                row[1] = vs.getAvailableDoses();
+                dtm.addRow(row);
+            }
+        }
+    }
+    
     private void btnManageSessionManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSessionManagerActionPerformed
         // TODO add your handling code here:
     ManageAllSessionManagers masm = new ManageAllSessionManagers(userProcessContainer, ecosystem, sessionManagerDirectory, userAccount);
@@ -146,8 +179,6 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageSessionManagerActionPerformed
 
-<<<<<<< HEAD
-=======
     private void btnManageAEFIManagersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAEFIManagersActionPerformed
         // TODO add your handling code here:
     ManageAllAEFIManagers maam = new ManageAllAEFIManagers(userProcessContainer, ecosystem, aefiManagerDirectory, userAccount);
@@ -164,12 +195,22 @@ public class VaccinationCenterWorkArea extends javax.swing.JPanel {
     layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageVaccinatorsActionPerformed
 
->>>>>>> f47622f38f2de8838de1e1ba799c6c150eb975b5
+    private void btnManageVaccinationSessionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageVaccinationSessionsActionPerformed
+        // TODO add your handling code here:
+    ManageAllSessions ms = new ManageAllSessions(userProcessContainer,ecosystem, vaccinationSessionDirectory, userAccount);
+    userProcessContainer.add("ManageAllSessions",ms);
+    CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+    layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageVaccinationSessionsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageAEFIManagers;
     private javax.swing.JButton btnManageSessionManager;
+    private javax.swing.JButton btnManageVaccinationSessions;
     private javax.swing.JButton btnManageVaccinators;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblSessionInfo;
     // End of variables declaration//GEN-END:variables
 }

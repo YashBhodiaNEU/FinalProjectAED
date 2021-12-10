@@ -81,8 +81,18 @@ public class ManageAllColdChainSuppliers extends javax.swing.JPanel {
         });
 
         btnDelete.setText("Delete Cold Chain");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -143,7 +153,28 @@ public class ManageAllColdChainSuppliers extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+       int selectedRow = tblColdChainSuppliers.getSelectedRow();
+       ColdChainSupplier vm = (ColdChainSupplier)tblColdChainSuppliers.getValueAt(selectedRow, 0);
+       UpdateColdChainSupplier edit = new UpdateColdChainSupplier(userProcessContainer, ecosystem, coldChainSupplierDirectory, vm);
+       userProcessContainer.add("UpdateColdChain", edit);
+       CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblColdChainSuppliers.getSelectedRow();
+        ColdChainSupplier vm = (ColdChainSupplier) tblColdChainSuppliers.getValueAt(selectedRow, 0);
+        coldChainSupplierDirectory.removeColdChainSupplier(vm);
+        populateTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

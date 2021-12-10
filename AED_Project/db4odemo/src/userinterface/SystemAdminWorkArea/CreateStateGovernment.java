@@ -11,6 +11,8 @@ import Business.Role.FederalGovernmentRole;
 import Business.Role.StateGovernmentRole;
 import Business.StateGovernment.StateGovernmentDirectory;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -82,6 +84,11 @@ public class CreateStateGovernment extends javax.swing.JPanel {
         });
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -160,17 +167,29 @@ public class CreateStateGovernment extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        if(txtSGovName.getText().isEmpty() || txtSGovAddress.getText().isEmpty() || txtFedName.getText().isEmpty() || txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+            return;
+        }
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         String name = txtSGovName.getText();
         String address = txtSGovAddress.getText();
         String fedName = txtFedName.getText();
-        double stock = Integer.parseInt(txtCurrentStock.getText());
+        long stock = Integer.parseInt(txtCurrentStock.getText());
         
         ecosystem.getStateGovernmentDirectory().addNewStateGovernment(name, address, fedName, stock);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(username, password, employee, new StateGovernmentRole());
+        JOptionPane.showMessageDialog(null, "State Geovernment Profile Created");
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
