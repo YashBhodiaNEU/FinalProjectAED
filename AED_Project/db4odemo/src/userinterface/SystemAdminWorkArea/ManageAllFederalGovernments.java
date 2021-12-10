@@ -9,6 +9,7 @@ import Business.FederalGovernment.FederalGovernment;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import Business.VaccineManufacturer.VaccineManufacturer;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -171,6 +172,7 @@ public class ManageAllFederalGovernments extends javax.swing.JPanel {
         FederalGovernment fg = (FederalGovernment) tblFederalGovernment.getValueAt(selectedRow, 0);
         federalGovernmentDirectory.removeFedGovernment(fg);
         populateTable();
+        JOptionPane.showMessageDialog(null, "Entry deleted");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

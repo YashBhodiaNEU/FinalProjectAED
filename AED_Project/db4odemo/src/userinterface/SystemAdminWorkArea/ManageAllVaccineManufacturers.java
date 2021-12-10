@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.VaccineManufacturer.VaccineManufacturer;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -191,6 +192,7 @@ public class ManageAllVaccineManufacturers extends javax.swing.JPanel {
         VaccineManufacturer vm = (VaccineManufacturer) tblManufacturers.getValueAt(selectedRow, 0);
         vaccineManufacturerDirectory.removeManufacturer(vm);
         populatetable();
+        JOptionPane.showMessageDialog(null, "Entry deleted");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 

@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.FederalGovernment.FederalGovernment;
 import Business.FederalGovernment.FederalGovernmentDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -174,6 +175,7 @@ public class ManageAllColdChainSuppliers extends javax.swing.JPanel {
         ColdChainSupplier vm = (ColdChainSupplier) tblColdChainSuppliers.getValueAt(selectedRow, 0);
         coldChainSupplierDirectory.removeColdChainSupplier(vm);
         populateTable();
+        JOptionPane.showMessageDialog(null, "Entry deleted");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 

@@ -9,6 +9,7 @@ import Business.AEFIManager.AEFIManagerDirectory;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -175,6 +176,7 @@ public class ManageAllAEFIManagers extends javax.swing.JPanel {
         AEFIManager vm = (AEFIManager) tblAEFIManager.getValueAt(selectedRow, 0);
         aefiManagerDirectory.removeAEFIManager(vm);
         populateTable();
+        JOptionPane.showMessageDialog(null, "Entry deleted");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
