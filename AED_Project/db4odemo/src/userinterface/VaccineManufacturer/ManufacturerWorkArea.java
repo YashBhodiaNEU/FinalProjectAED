@@ -38,13 +38,14 @@ public class ManufacturerWorkArea extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.userAccount = account;
         populateRequestTable();
+        populateRequestPipelineTable();
     }
     
     public void populateRequestTable(){
         DefaultTableModel dtm = (DefaultTableModel) tblVaccineRequests.getModel();
         dtm.setRowCount(0);
         for(VaccineRequestFTVM vr : ecosystem.getRequestFTVMDirectory().getRequestFTVMDirectory()){
-            //if(userAccount.getEmployee().getName().equalsIgnoreCase(vr.getVaccineManufacturer())){
+            if(userAccount.getEmployee().getName().equalsIgnoreCase(vr.getVaccineManufacturer()) && vr.getVaccineRequestStatus().equalsIgnoreCase("Order Placed")){
                Object [] row = new Object[5];
                row[0] = vr;
                row[1] = vr.getFederalGovernment();
@@ -52,10 +53,26 @@ public class ManufacturerWorkArea extends javax.swing.JPanel {
                row[3] = vr.getNumberOfDoses();
                row[4] = vr.getVaccineRequestStatus();
                dtm.addRow(row);
-            //}
+            }
         }
     }
-
+    
+    public void populateRequestPipelineTable(){
+        DefaultTableModel dtm = (DefaultTableModel) tblVaccineProcess.getModel();
+        dtm.setRowCount(0);
+        for(VaccineRequestFTVM vr : ecosystem.getRequestFTVMDirectory().getRequestFTVMDirectory()){
+            if(userAccount.getEmployee().getName().equalsIgnoreCase(vr.getVaccineManufacturer()) && vr.getVaccineRequestStatus().equalsIgnoreCase("Doses In Pipeline")){
+               Object [] row = new Object[5];
+               row[0] = vr;
+               row[1] = vr.getFederalGovernment();
+               row[2] = vr.getColdChainSupplier();
+               row[3] = vr.getNumberOfDoses();
+               row[4] = vr.getVaccineRequestStatus();
+               dtm.addRow(row);
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,8 +85,12 @@ public class ManufacturerWorkArea extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVaccineRequests = new javax.swing.JTable();
+        btnPipeline = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblVaccineProcess = new javax.swing.JTable();
 
-        jLabel1.setText("Manufacturer Admin Role");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Vaccine Manufacturer");
 
         tblVaccineRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,34 +105,75 @@ public class ManufacturerWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblVaccineRequests);
 
+        btnPipeline.setText("Order in Pipeline");
+        btnPipeline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPipelineActionPerformed(evt);
+            }
+        });
+
+        tblVaccineProcess.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Request ID", "Federal Government", "Cold Chain", "Number of Doses", "Request Status"
+            }
+        ));
+        jScrollPane2.setViewportView(tblVaccineProcess);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jLabel1)
-                .addContainerGap(467, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPipeline)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPipeline)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(246, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPipelineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPipelineActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblVaccineRequests.getSelectedRow();
+        VaccineRequestFTVM vr = (VaccineRequestFTVM)tblVaccineRequests.getValueAt(selectedRow, 0);
+        String status = "Doses In Pipeline";
+        vr.setVaccineRequestStatus(status);
+        populateRequestPipelineTable();
+        populateRequestTable();
+    }//GEN-LAST:event_btnPipelineActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPipeline;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblVaccineProcess;
     private javax.swing.JTable tblVaccineRequests;
     // End of variables declaration//GEN-END:variables
 }

@@ -71,7 +71,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(btnManageVaccinationCenters))
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addContainerGap(451, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +80,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageVaccinationCenters)
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(378, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
