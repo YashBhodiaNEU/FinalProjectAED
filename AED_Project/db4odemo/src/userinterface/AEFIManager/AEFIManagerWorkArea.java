@@ -89,6 +89,8 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         tblResolvedAEFIs = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Adverse Events After Immunization Reported");

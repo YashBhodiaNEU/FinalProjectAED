@@ -132,6 +132,8 @@ public class ColdChainSupplierWorkArea extends javax.swing.JPanel {
         tblStateGovernmentRequest = new javax.swing.JTable();
         btnDelivered2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Vaccine Orders in Pipeline");
 
