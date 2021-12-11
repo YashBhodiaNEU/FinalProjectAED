@@ -56,6 +56,8 @@ public class CreateAEFIManager extends javax.swing.JPanel {
         txtUserName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jLabel2.setText("Name");
 
         jLabel3.setText("Email ID");
@@ -78,6 +80,7 @@ public class CreateAEFIManager extends javax.swing.JPanel {
 
         jLabel5.setText("UserName");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Create AEFI Manager");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -85,9 +88,9 @@ public class CreateAEFIManager extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(190, 190, 190)
                 .addComponent(jLabel1)
-                .addContainerGap(404, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(130, 130, 130)
@@ -113,9 +116,9 @@ public class CreateAEFIManager extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(72, 72, 72)
                 .addComponent(jLabel1)
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addContainerGap(340, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(135, 135, 135)

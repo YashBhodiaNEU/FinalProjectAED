@@ -62,6 +62,8 @@ public class UpdateVaccinationCenter extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         jLabel6.setText("Vaccination Center ZipCode");
 
         jLabel7.setText("Balance Doses");
@@ -72,7 +74,8 @@ public class UpdateVaccinationCenter extends javax.swing.JPanel {
 
         jLabel5.setText("Vaccination Center Address");
 
-        jLabel1.setText("Update");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Update Vaccination Center");
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -114,16 +117,16 @@ public class UpdateVaccinationCenter extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnUpdate))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addGap(164, 164, 164)
                         .addComponent(jLabel1)))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-                .addGap(93, 93, 93)
+                .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtVaccinationCenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -148,7 +151,7 @@ public class UpdateVaccinationCenter extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnBack))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

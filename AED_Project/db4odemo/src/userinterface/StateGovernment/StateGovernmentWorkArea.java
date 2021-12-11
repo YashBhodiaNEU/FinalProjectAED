@@ -106,6 +106,9 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("State Government Admin Role");
 
         btnManageVaccinationCenters.setText("Manage Vaccination Centers");
@@ -168,9 +171,6 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                         .addComponent(btnManageVaccinationCenters))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(198, 198, 198)
@@ -190,7 +190,10 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                                     .addComponent(comboManufacturer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(comboColdChain, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(btnRequest1)))))
+                                .addComponent(btnRequest1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel1)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -219,7 +222,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                     .addComponent(btnRequest1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

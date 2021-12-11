@@ -62,6 +62,9 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAppointment = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Book Vaccination Appointment");
 
         btnBookAppointment.setText("Book an appointment");
@@ -158,7 +161,7 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
                     .addComponent(btnBack))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -132,7 +132,9 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         btnRestoreStatus = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Session Manager Work Area");
 
         tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
