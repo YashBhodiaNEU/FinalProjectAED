@@ -6,6 +6,7 @@ package userinterface.ColdChainSupplier;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import Business.VaccinationCenter.VaccinationCenter;
 import Business.VaccineRequestVCTS.VaccineRequestVCTS;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -60,6 +61,12 @@ public class ColdChainVCTS extends javax.swing.JPanel {
                dtm.addRow(row);
             }
         }
+    }
+    
+    public void adjustStockPlus(VaccineRequestVCTS vr){
+        VaccinationCenter sg = ecosystem.getVaccinationCenterDirectory().getVaccinationCenter(vr.getVaccinationCenter());
+        long updatedStock = sg.getCenterBalanceDoses() + vr.getNumberOfDoses();
+        sg.setCenterBalanceDoses(updatedStock);
     }
 
     /**
@@ -141,6 +148,7 @@ public class ColdChainVCTS extends javax.swing.JPanel {
         VaccineRequestVCTS vr = (VaccineRequestVCTS)tblVaccinationCenterRequest.getValueAt(selectedRow, 0);
         String status = "Doses Delivered";
         vr.setVaccineRequestStatus(status);
+        adjustStockPlus(vr);
         populateStateGovVaccineProcess();
         populateStateGovVaccineRequest();
     }//GEN-LAST:event_btnDelivered2ActionPerformed

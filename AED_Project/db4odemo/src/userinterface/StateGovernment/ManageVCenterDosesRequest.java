@@ -5,6 +5,7 @@
 package userinterface.StateGovernment;
 
 import Business.EcoSystem;
+import Business.StateGovernment.StateGovernment;
 import Business.UserAccount.UserAccount;
 import Business.VaccineRequestVCTS.VaccineRequestVCTS;
 import javax.swing.JPanel;
@@ -62,7 +63,13 @@ public class ManageVCenterDosesRequest extends javax.swing.JPanel {
             }
         }
     }
-
+    
+    public void adjustStockMinus(VaccineRequestVCTS vr){
+        StateGovernment sg = ecosystem.getStateGovernmentDirectory().getStateGovernment(userAccount.getEmployee().getName());
+        long updatedStock = sg.getCurrentStock() - vr.getNumberOfDoses();
+        sg.setCurrentStock(updatedStock);
+    }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,6 +155,7 @@ public class ManageVCenterDosesRequest extends javax.swing.JPanel {
         VaccineRequestVCTS vr = (VaccineRequestVCTS)tblVCenterDosesRequest.getValueAt(selectedRow, 0);
         String status = "Doses In Pipeline";
         vr.setVaccineRequestStatus(status);
+        adjustStockMinus(vr);
         populateProcessTable();
         populateRequestTable();
     }//GEN-LAST:event_btnPipelineActionPerformed

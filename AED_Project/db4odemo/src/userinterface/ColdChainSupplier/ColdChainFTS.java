@@ -5,6 +5,7 @@
 package userinterface.ColdChainSupplier;
 
 import Business.EcoSystem;
+import Business.StateGovernment.StateGovernment;
 import Business.UserAccount.UserAccount;
 import Business.VaccineRequestSTF.VaccineRequestSTF;
 import javax.swing.JPanel;
@@ -64,6 +65,11 @@ public class ColdChainFTS extends javax.swing.JPanel {
         }
     }
 
+    public void adjustStockPlus(VaccineRequestSTF vr){
+        StateGovernment sg = ecosystem.getStateGovernmentDirectory().getStateGovernment(vr.getStateGovernment());
+        long updatedStock = sg.getCurrentStock() + vr.getNumberOfDoses();
+        sg.setCurrentStock(updatedStock);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -143,6 +149,7 @@ public class ColdChainFTS extends javax.swing.JPanel {
         VaccineRequestSTF vsr = (VaccineRequestSTF)tblStateGovernmentRequest.getValueAt(selectedRow, 0);
         String status = "Doses Delivered";
         vsr.setVaccineRequestStatus(status);
+        adjustStockPlus(vsr);
         populateStateGovVaccineProcess();
         populateStateGovVaccineRequest();
     }//GEN-LAST:event_btnDelivered2ActionPerformed

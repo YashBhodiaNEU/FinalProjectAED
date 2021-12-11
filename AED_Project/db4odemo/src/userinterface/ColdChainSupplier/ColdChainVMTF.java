@@ -5,6 +5,7 @@
 package userinterface.ColdChainSupplier;
 
 import Business.EcoSystem;
+import Business.FederalGovernment.FederalGovernment;
 import Business.UserAccount.UserAccount;
 import Business.VaccineRequestFTVM.VaccineRequestFTVM;
 import javax.swing.JPanel;
@@ -61,6 +62,12 @@ public class ColdChainVMTF extends javax.swing.JPanel {
                dtm.addRow(row);
             }
         }
+    }
+    
+    public void adjustStockPlus(VaccineRequestFTVM vr){
+        FederalGovernment fg = ecosystem.getFederalGovernmentDirectory().getFederalGovernment(vr.getFederalGovernment());
+        long updatedStock = fg.getCurrentStock() + vr.getNumberOfDoses();
+        fg.setCurrentStock(updatedStock);
     }
 
     /**
@@ -150,6 +157,7 @@ public class ColdChainVMTF extends javax.swing.JPanel {
         int selectedRow = tblVaccineRequests.getSelectedRow();
         VaccineRequestFTVM vr = (VaccineRequestFTVM)tblVaccineRequests.getValueAt(selectedRow, 0);
         String status = "Doses Delivered";
+        adjustStockPlus(vr);
         vr.setVaccineRequestStatus(status);
         populateRequestDeliveredTable();
         populateRequestTable();
