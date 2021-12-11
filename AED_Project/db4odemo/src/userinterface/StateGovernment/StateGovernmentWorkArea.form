@@ -26,6 +26,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnManageVaccinationCenters" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnManageRequest" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -48,10 +50,10 @@
                               <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="txtNumberOfDoses" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboManufacturer" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboColdChain" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                  <Component id="comboManufacturer" alignment="0" pref="136" max="32767" attributes="0"/>
+                                  <Component id="comboColdChain" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               <Component id="btnRequest1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -71,7 +73,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnManageVaccinationCenters" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnManageVaccinationCenters" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnManageRequest" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel6" min="-2" pref="13" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -240,6 +245,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="--------------------------------------------------------------------------------------------------------------------------------------------------------"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnManageRequest">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manage Doses Request"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageRequestActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

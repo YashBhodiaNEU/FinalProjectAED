@@ -105,6 +105,7 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
         comboManufacturer = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        btnManageRequest = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 255));
 
@@ -160,6 +161,13 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
 
         jLabel6.setText("--------------------------------------------------------------------------------------------------------------------------------------------------------");
 
+        btnManageRequest.setText("Manage Doses Request");
+        btnManageRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageRequestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,7 +176,9 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnManageVaccinationCenters))
+                        .addComponent(btnManageVaccinationCenters)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnManageRequest))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6))
@@ -187,9 +197,9 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                                 .addGap(135, 135, 135)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtNumberOfDoses)
-                                    .addComponent(comboManufacturer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(comboColdChain, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                    .addComponent(comboManufacturer, 0, 136, Short.MAX_VALUE)
+                                    .addComponent(comboColdChain, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(44, 44, 44)
                                 .addComponent(btnRequest1))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(165, 165, 165)
@@ -202,7 +212,9 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageVaccinationCenters)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnManageVaccinationCenters)
+                    .addComponent(btnManageRequest))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -251,8 +263,17 @@ public class StateGovernmentWorkArea extends javax.swing.JPanel {
         populateOrderTable();
     }//GEN-LAST:event_btnRequest1ActionPerformed
 
+    private void btnManageRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestActionPerformed
+        // TODO add your handling code here:
+    ManageVCenterDosesRequest mavc = new ManageVCenterDosesRequest(userProcessContainer, userAccount, ecosystem);
+    userProcessContainer.add("ManageVCenterDosesRequest",mavc);
+    CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+    layout.next(userProcessContainer);  
+    }//GEN-LAST:event_btnManageRequestActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnManageRequest;
     private javax.swing.JButton btnManageVaccinationCenters;
     private javax.swing.JButton btnRequest1;
     private javax.swing.JComboBox<String> comboColdChain;
