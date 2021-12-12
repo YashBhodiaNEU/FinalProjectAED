@@ -122,6 +122,13 @@ public class FederalGovernmentWorkArea extends javax.swing.JPanel {
             }
         }
     }
+    
+    public void adjustStockMinus(VaccineRequestSTF vr){
+        FederalGovernment fg = ecosystem.getFederalGovernmentDirectory().getFederalGovernment(userAccount.getEmployee().getName());
+        long updatedStock = fg.getCurrentStock() - vr.getNumberOfDoses();
+        fg.setCurrentStock(updatedStock);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -254,7 +261,7 @@ public class FederalGovernmentWorkArea extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNumberOfDoses)
                             .addComponent(comboManufacturer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboColdChain, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboColdChain, 0, 136, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(btnPlaceOrder))
                     .addGroup(layout.createSequentialGroup()
@@ -299,10 +306,6 @@ public class FederalGovernmentWorkArea extends javax.swing.JPanel {
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
         FederalGovernment fg = ecosystem.getFederalGovernmentDirectory().getFederalGovernment(userAccount.getEmployee().getName());
-
-        //VaccineManufacturer vm = ecosystem.getVaccineManufacturerDirectory().getVaccineManufacturer(comboManufacturer.getSelectedItem().toString());
-        //ColdChainSupplier ccs = ecosystem.getColdChainSupplierDirectory().getColdChainSupplier(comboColdChain.getSelectedItem().toString());
-
         VaccineRequestFTVM vr = ecosystem.getRequestFTVMDirectory().newVaccineRequest();
 
         vr.setVaccineRequestID(String.valueOf(i++));
@@ -311,7 +314,6 @@ public class FederalGovernmentWorkArea extends javax.swing.JPanel {
         vr.setColdChainSupplier(comboColdChain.getSelectedItem().toString());
         vr.setNumberOfDoses(Integer.parseInt(txtNumberOfDoses.getText()));
         vr.setVaccineRequestStatus("Order Placed");
-        //System.out.println("Order Placed");
         populateOrderTable();
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
@@ -321,6 +323,7 @@ public class FederalGovernmentWorkArea extends javax.swing.JPanel {
         VaccineRequestSTF vsr = (VaccineRequestSTF)tblStateGovernmentRequest.getValueAt(selectedRow, 0);
         String status = "Doses In Pipeline";
         vsr.setVaccineRequestStatus(status);
+        adjustStockMinus(vsr);
         populateStateGovVaccineProcess();
         populateStateGovVaccineRequest();
     }//GEN-LAST:event_btnPipelineActionPerformed
