@@ -228,19 +228,19 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
         ba.setBeneficiary(beneficiary);
         ba.setVaccinationSession(vs);
         
-        //System.out.println(ba.getBeneficiary().getBeneficiaryDoseNumber());
-        if(beneficiary.getStatus() == "Not Vaccinated"){
+        if(beneficiary.getStatus().equalsIgnoreCase("Not Vaccinated")){
             ba.setDoseNumber(1);
             String status = "Appointment Booked";
             ba.setAppointmentStatus(status);
         }
-        else if(beneficiary.getStatus() == "Partially Vaccinated"){
+        else if(beneficiary.getStatus().equalsIgnoreCase("Partially Vaccinated")){
             ba.setDoseNumber(2);
             String status = "Appointment Booked";
             ba.setAppointmentStatus(status);
         }
         else{
             JOptionPane.showMessageDialog(null, "You are Fully Vaccinated");
+            return;
         }
 
         
