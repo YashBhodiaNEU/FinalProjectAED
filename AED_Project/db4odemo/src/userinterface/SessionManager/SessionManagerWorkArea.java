@@ -118,7 +118,6 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAppointment = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         btnFitForAdministration = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblAppointmentFit = new javax.swing.JTable();
@@ -151,8 +150,6 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
             }
         ));
         jScrollPane2.setViewportView(tblAppointment);
-
-        jLabel2.setText("Appointment List");
 
         btnFitForAdministration.setText("Fit For Vaccine Administration");
         btnFitForAdministration.addActionListener(new java.awt.event.ActionListener() {
@@ -245,9 +242,7 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnBack)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)
-                                .addGap(124, 124, 124)
+                                .addGap(212, 212, 212)
                                 .addComponent(jLabel1))
                             .addComponent(btnFitForAdministration))
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -268,8 +263,7 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(btnBack)
-                    .addComponent(jLabel2))
+                    .addComponent(btnBack))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -341,7 +335,6 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton btnReportAEFI;
     private javax.swing.JButton btnRestoreStatus;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;

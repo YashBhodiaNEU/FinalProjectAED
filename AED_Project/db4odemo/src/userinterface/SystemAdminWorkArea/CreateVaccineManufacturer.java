@@ -207,8 +207,15 @@ public class CreateVaccineManufacturer extends javax.swing.JPanel {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         
-        ecosystem.getVaccineManufacturerDirectory().addNewVaccineManufacturer(name, vname, stock);
+        for(UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
+            if(account.getUsername().equals(username)) {
+                JOptionPane.showMessageDialog(null, "Username Already exists");
+                return;
+            }
+        }
+
         
+        ecosystem.getVaccineManufacturerDirectory().addNewVaccineManufacturer(name, vname, stock);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(username, password, employee, new VaccineManufacturerRole());
         JOptionPane.showMessageDialog(null, "Vaccine Manufacture Profile Created");

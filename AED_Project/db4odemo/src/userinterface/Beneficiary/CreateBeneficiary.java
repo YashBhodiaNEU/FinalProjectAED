@@ -173,6 +173,13 @@ public class CreateBeneficiary extends javax.swing.JPanel {
         String pass = txtPassword.getText();
         String status = "Not Vaccinated";
          
+        for(UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
+            if(account.getUsername().equals(uname)) {
+                JOptionPane.showMessageDialog(null, "Username Already exists");
+                return;
+            }
+        }
+
         
         ecosystem.getBeneficiaryDirectory().addBeneficiary(name, age, contact, status);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);

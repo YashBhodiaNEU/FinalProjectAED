@@ -85,7 +85,6 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblAEFIs = new javax.swing.JTable();
         btnAEFIResolution = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblResolvedAEFIs = new javax.swing.JTable();
 
@@ -116,8 +115,6 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
                 btnAEFIResolutionActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("AEFI Requests");
 
         tblResolvedAEFIs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,9 +150,6 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -164,9 +158,7 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(54, 54, 54)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAEFIResolution)
@@ -189,7 +181,6 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAEFIResolution;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
