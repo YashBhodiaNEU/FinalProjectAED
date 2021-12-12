@@ -94,6 +94,7 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Adverse Events After Immunization Reported");
 
+        tblAEFIs.setBackground(new java.awt.Color(255, 51, 51));
         tblAEFIs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -109,6 +110,7 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tblAEFIs);
 
+        btnAEFIResolution.setBackground(new java.awt.Color(255, 255, 255));
         btnAEFIResolution.setText("AEFI Resolved");
         btnAEFIResolution.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +118,7 @@ public class AEFIManagerWorkArea extends javax.swing.JPanel {
             }
         });
 
+        tblResolvedAEFIs.setBackground(new java.awt.Color(153, 255, 102));
         tblResolvedAEFIs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
