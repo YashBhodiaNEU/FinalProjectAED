@@ -178,6 +178,14 @@ public class CreateStateGovernment extends javax.swing.JPanel {
         String address = txtSGovAddress.getText();
         String fedName = txtFedName.getText();
         long stock = Integer.parseInt(txtCurrentStock.getText());
+       
+        for(UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
+            if(account.getUsername().equals(username)) {
+                JOptionPane.showMessageDialog(null, "Username Already exists");
+                return;
+            }
+        }
+
         
         ecosystem.getStateGovernmentDirectory().addNewStateGovernment(name, address, fedName, stock);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);

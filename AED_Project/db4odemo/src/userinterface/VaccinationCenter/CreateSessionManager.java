@@ -155,6 +155,14 @@ public class CreateSessionManager extends javax.swing.JPanel {
         String email = txtEmailID.getText();
         String centerName = userAccount.getEmployee().getName();
         
+        for(UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
+            if(account.getUsername().equals(uname)) {
+                JOptionPane.showMessageDialog(null, "Username Already exists");
+                return;
+            }
+        }
+
+        
         ecosystem.getSessionManagerDirectory().addSessionManager(name, email, centerName);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(uname, pass, employee, new SessionManagerRole());

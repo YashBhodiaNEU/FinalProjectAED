@@ -222,6 +222,17 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
+        if(userNameJTextField.getText().isEmpty() || passwordField.getText().isEmpty()){
+          JOptionPane.showMessageDialog(null,"Username and Password field's cannot be empty");
+            return;  
+        }
+       else if(system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText()) == null) {
+            JOptionPane.showMessageDialog(null,"Invalid UserName");
+            return;
+       }
+
+        
+        
     UserAccount usacc = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
     CardLayout layout = (CardLayout) container.getLayout();
     container.add("workArea",usacc.getRole().createWorkArea(container, usacc, system, vaccineManufacturerDirectory, federalGovernmentDirectory, stateGovernmentDirectory, coldChainSupplierDirectory, vaccinationCenterDirectory, sessionManagerDirectory, aefiManagerDirectory, vaccinatorDirectory, vaccinationSessionDirectory, beneficiaryDirectory));

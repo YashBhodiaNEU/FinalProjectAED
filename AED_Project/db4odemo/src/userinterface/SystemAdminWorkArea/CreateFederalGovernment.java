@@ -214,8 +214,15 @@ public class CreateFederalGovernment extends javax.swing.JPanel {
         String address = txtAddress.getText();
         long stock = Integer.parseInt(txtStock.getText());
         
-        ecosystem.getFederalGovernmentDirectory().addNewFedGovernment(name, address, stock);
+        for(UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
+            if(account.getUsername().equals(username)) {
+                JOptionPane.showMessageDialog(null, "Username Already exists");
+                return;
+            }
+        }
+
         
+        ecosystem.getFederalGovernmentDirectory().addNewFedGovernment(name, address, stock);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(username, password, employee, new FederalGovernmentRole());
         JOptionPane.showMessageDialog(null, "Federal Government Profile Created");
