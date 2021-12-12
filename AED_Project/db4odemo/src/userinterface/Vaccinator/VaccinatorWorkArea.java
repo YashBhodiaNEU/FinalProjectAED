@@ -208,13 +208,14 @@ public class VaccinatorWorkArea extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblAppointmentFit.getSelectedRow();
         BookAppointment ba = (BookAppointment)tblAppointmentFit.getValueAt(selectedRow, 0);
-        double availableDoses = ba.getVaccinationSession().getAvailableDoses();
-        ba.getVaccinationSession().setAvailableDoses(availableDoses - 1);
-        if(ba.getBeneficiary().getStatus() == "Not Vaccinated"){
+        long availableDoses = ba.getVaccinationSession().getAvailableDoses();
+        if(ba.getBeneficiary().getStatus().equalsIgnoreCase("Not Vaccinated")){
+            ba.getVaccinationSession().setAvailableDoses(availableDoses - 1);
             ba.setAppointmentStatus("Partially Vaccinated");
             ba.getBeneficiary().setStatus("Partially Vaccinated");
         }
-        else if(ba.getBeneficiary().getStatus() == "Partially Vaccinated"){
+        else if(ba.getBeneficiary().getStatus().equalsIgnoreCase("Partially Vaccinated")){
+            ba.getVaccinationSession().setAvailableDoses(availableDoses - 1);
             ba.setAppointmentStatus("Fully Vaccinated");
             ba.getBeneficiary().setStatus("Fully Vaccinated");
         }

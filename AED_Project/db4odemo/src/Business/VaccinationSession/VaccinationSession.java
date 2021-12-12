@@ -22,10 +22,10 @@ public class VaccinationSession{
     private String aefiManager;
     private String vaccinator;
     private String vaccineName;
-    private double availableDoses;
+    private long availableDoses;
     private String centerName;
     
-    public VaccinationSession(String sessionName, String sessionDate,float startTime,float endTime,String sessionManager,String aefiManager, String vaccinator, String vaccineName, double availableDoses, String centerName){
+    public VaccinationSession(String sessionName, String sessionDate,float startTime,float endTime,String sessionManager,String aefiManager, String vaccinator, String vaccineName, long availableDoses, String centerName){
         this.sessionName = sessionName;
         this.sessionDate = sessionDate;
         this.startTime = startTime;
@@ -110,14 +110,13 @@ public class VaccinationSession{
         this.vaccineName = vaccineName;
     }
 
-    public double getAvailableDoses() {
+    public long getAvailableDoses() {
         return availableDoses;
     }
 
-    public void setAvailableDoses(double availableDoses) {
+    public void setAvailableDoses(long availableDoses) {
         this.availableDoses = availableDoses;
-    }
-    
+    }   
     
     @Override
     public String toString(){
