@@ -91,7 +91,7 @@ public class BookVaccinationAppointment extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Hospital ", "Session ", "Date", "Start Time", "End Time", "Vaccine ", "Available Doses", "Title 8", "Title 9", "Title 10"
+                "Session", "Date", "Start Time", "End Time", "Session Manager", "AEFI Manager", "Vaccinator", "Vaccine", "Slots Avilable", "Hospital"
             }
         ));
         jScrollPane1.setViewportView(tblSessions);

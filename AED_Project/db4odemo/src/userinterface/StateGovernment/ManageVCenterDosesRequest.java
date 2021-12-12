@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.StateGovernment.StateGovernment;
 import Business.UserAccount.UserAccount;
 import Business.VaccineRequestVCTS.VaccineRequestVCTS;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -85,6 +86,7 @@ public class ManageVCenterDosesRequest extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblVCenterDosesProcess = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         tblVCenterDosesRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -121,6 +123,13 @@ public class ManageVCenterDosesRequest extends javax.swing.JPanel {
 
         jLabel1.setText("Vaccination Center Doses Request");
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,7 +140,8 @@ public class ManageVCenterDosesRequest extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(btnPipeline)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -145,7 +155,9 @@ public class ManageVCenterDosesRequest extends javax.swing.JPanel {
                 .addComponent(btnPipeline)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBack)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -160,8 +172,16 @@ public class ManageVCenterDosesRequest extends javax.swing.JPanel {
         populateRequestTable();
     }//GEN-LAST:event_btnPipelineActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPipeline;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;

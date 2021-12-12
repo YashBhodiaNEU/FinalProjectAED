@@ -162,6 +162,14 @@ public class CreateColdChainSupplier extends javax.swing.JPanel {
         String name = txtName.getText();
         float minTempSupport = Float.parseFloat(txtMinTemp.getText());
         
+        for(UserAccount account : ecosystem.getUserAccountDirectory().getUserAccountList()) {
+            if(account.getUsername().equals(username)) {
+                JOptionPane.showMessageDialog(null, "Username Already exists");
+                return;
+            }
+        }
+
+        
         ecosystem.getColdChainSupplierDirectory().addColdChain(name, minTempSupport);
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(username, password, employee, new ColdChainSupplierRole());
