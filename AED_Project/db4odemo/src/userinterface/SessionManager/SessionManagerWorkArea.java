@@ -136,6 +136,7 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Session Manager Work Area");
 
+        tblAppointment.setBackground(new java.awt.Color(0, 51, 255));
         tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -151,6 +152,7 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblAppointment);
 
+        btnFitForAdministration.setBackground(new java.awt.Color(255, 255, 255));
         btnFitForAdministration.setText("Fit For Vaccine Administration");
         btnFitForAdministration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +160,7 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
             }
         });
 
+        tblAppointmentFit.setBackground(new java.awt.Color(255, 255, 102));
         tblAppointmentFit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -173,13 +176,15 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tblAppointmentFit);
 
-        btnBack.setText("Back");
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("<<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
 
+        tblVaccinated.setBackground(new java.awt.Color(153, 255, 153));
         tblVaccinated.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -195,8 +200,10 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane5.setViewportView(tblVaccinated);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Beneficiaries Vaccinated");
 
+        btnReportAEFI.setBackground(new java.awt.Color(255, 255, 255));
         btnReportAEFI.setText("Report AEFI");
         btnReportAEFI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,6 +211,7 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
             }
         });
 
+        tblAEFIs.setBackground(new java.awt.Color(255, 51, 51));
         tblAEFIs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -219,8 +227,10 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane6.setViewportView(tblAEFIs);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("AEFI Reported");
 
+        btnRestoreStatus.setBackground(new java.awt.Color(255, 255, 255));
         btnRestoreStatus.setText("Restore Vaccination Status");
         btnRestoreStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,20 +251,21 @@ public class SessionManagerWorkArea extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addGap(212, 212, 212)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(94, 94, 94)
                                 .addComponent(jLabel1))
-                            .addComponent(btnFitForAdministration))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnReportAEFI, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(211, 211, 211)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                            .addComponent(btnFitForAdministration)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnReportAEFI, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(205, 205, 205)
+                                .addComponent(jLabel4)))
+                        .addGap(0, 266, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnRestoreStatus)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(331, 331, 331)
+                .addGap(337, 337, 337)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

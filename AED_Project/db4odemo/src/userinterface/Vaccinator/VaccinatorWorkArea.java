@@ -113,6 +113,7 @@ public class VaccinatorWorkArea extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Vaccinator Work Area");
 
+        tblAppointmentFit.setBackground(new java.awt.Color(255, 255, 153));
         tblAppointmentFit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -139,6 +140,7 @@ public class VaccinatorWorkArea extends javax.swing.JPanel {
 
         jLabel3.setText("Sucessfully Vaccinated");
 
+        tblVaccinated.setBackground(new java.awt.Color(153, 255, 153));
         tblVaccinated.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
