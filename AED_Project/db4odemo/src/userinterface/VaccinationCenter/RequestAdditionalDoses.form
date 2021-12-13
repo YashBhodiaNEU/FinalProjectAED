@@ -34,13 +34,11 @@
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="btnRequest1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtNumberOfDoses" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="comboManufacturer" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="comboColdChain" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="comboColdChain" pref="145" max="32767" attributes="0"/>
+                                  <Component id="txtNumberOfDoses" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="comboManufacturer" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="btnBack" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
