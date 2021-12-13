@@ -54,6 +54,9 @@ public class BeneficiaryWorkArea extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBookAppointment = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Beneficiary Work Area");
 
         btnBookAppointment.setText("Book an Appointment");
@@ -68,12 +71,13 @@ public class BeneficiaryWorkArea extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addContainerGap(541, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBookAppointment)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnBookAppointment)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -83,7 +87,7 @@ public class BeneficiaryWorkArea extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(btnBookAppointment)
-                .addContainerGap(717, Short.MAX_VALUE))
+                .addContainerGap(709, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -15,8 +15,10 @@ import Business.UserAccount.UserAccount;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.VaccinatorDirectory;
+import Business.VaccineManufacturer.VaccineManufacturer;
 import Business.VaccineManufacturer.VaccineManufacturerDirectory;
 import Business.VaccineRequestFTVM.VaccineRequestFTVM;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -73,6 +75,12 @@ public class ManufacturerWorkArea extends javax.swing.JPanel {
         }
     }
     
+    public void adjustStockMinus(VaccineRequestFTVM vr){
+        VaccineManufacturer vm = ecosystem.getVaccineManufacturerDirectory().getVaccineManufacturer(userAccount.getEmployee().getName());
+        long updatedStock = vm.getCurrentStock() - vr.getNumberOfDoses();
+        vm.setCurrentStock(updatedStock);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,6 +96,9 @@ public class ManufacturerWorkArea extends javax.swing.JPanel {
         btnPipeline = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblVaccineProcess = new javax.swing.JTable();
+        btnUpdate = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Vaccine Manufacturer");
@@ -125,6 +136,13 @@ public class ManufacturerWorkArea extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblVaccineProcess);
 
+        btnUpdate.setText("Update Current Stock");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,28 +150,34 @@ public class ManufacturerWorkArea extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnPipeline)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnUpdate)
+                                .addGap(29, 29, 29)))))
+                .addGap(0, 37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPipeline)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -163,13 +187,24 @@ public class ManufacturerWorkArea extends javax.swing.JPanel {
         VaccineRequestFTVM vr = (VaccineRequestFTVM)tblVaccineRequests.getValueAt(selectedRow, 0);
         String status = "Doses In Pipeline";
         vr.setVaccineRequestStatus(status);
+        adjustStockMinus(vr);
         populateRequestPipelineTable();
         populateRequestTable();
     }//GEN-LAST:event_btnPipelineActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+    VaccineManufacturer vm = ecosystem.getVaccineManufacturerDirectory().getVaccineManufacturer(userAccount.getEmployee().getName());
+    UpdateCurrentDoses ucd = new UpdateCurrentDoses(userProcessContainer, userAccount, ecosystem, vm);
+    userProcessContainer.add("UpdateCurrentDoses2",ucd);
+    CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+    layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPipeline;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

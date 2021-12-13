@@ -9,7 +9,9 @@ import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.SessionManagers.SessionManager;
 import Business.UserAccount.UserAccount;
+import Business.VaccinationCenter.VaccinationCenter;
 import Business.VaccinationCenter.VaccinationCenterDirectory;
+import Business.VaccinationSession.VaccinationSession;
 import Business.VaccinationSession.VaccinationSessionDirectory;
 import Business.Vaccinator.Vaccinator;
 import java.awt.CardLayout;
@@ -73,6 +75,11 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
         }
    }
     
+    public void adjustStockMinus(Long doses){
+        VaccinationCenter vc = ecosystem.getVaccinationCenterDirectory().getVaccinationCenter(userAccount.getEmployee().getName());
+        long updatedDoses = vc.getCenterBalanceDoses() - doses;
+        vc.setCenterBalanceDoses(updatedDoses);
+    }
     
 
     /**
@@ -106,25 +113,28 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Create Vaccination Session");
 
         jLabel2.setText("Name");
 
         jLabel3.setText("Date");
 
-        jLabel4.setText("startTime");
+        jLabel4.setText("StartTime");
 
-        jLabel5.setText("session manager");
+        jLabel5.setText("Session Manager");
 
-        jLabel6.setText("end time");
+        jLabel6.setText("End Time");
 
-        jLabel7.setText("aefi manager");
+        jLabel7.setText("AEFI Manager");
 
-        jLabel8.setText("vaccinator");
+        jLabel8.setText("Vaccinator");
 
-        jLabel9.setText("vaccine");
+        jLabel9.setText("Vaccine");
 
-        jLabel10.setText("available doses");
+        jLabel10.setText("Available Doses");
 
         sessionManagerCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sessionManagerCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +149,7 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
 
         vaccineComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Vaccine", "Pfizer", "Moderna", "Covishield", "Covaxin", "Jenssen", " " }));
 
-        btnSave.setText("Save");
+        btnSave.setText("Create");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -160,45 +170,45 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(162, 162, 162)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(152, 152, 152)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSave))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(vaccinatorComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtDate, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtAvailableDoses, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtStartTime, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtEndTime, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(sessionManagerCombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(aefiManagerCombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(vaccineComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(211, Short.MAX_VALUE))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(vaccinatorComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtAvailableDoses, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtStartTime, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtEndTime, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sessionManagerCombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(aefiManagerCombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(vaccineComboBox, 0, 104, Short.MAX_VALUE))))
+                .addContainerGap(163, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -211,9 +221,9 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(txtStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(txtEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -234,11 +244,11 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtAvailableDoses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnBack))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -260,9 +270,11 @@ public class CreateVaccinationSession extends javax.swing.JPanel {
     String aname = aefiManagerCombo.getSelectedItem().toString();
     String vaccinator = vaccinatorComboBox.getSelectedItem().toString();
     String vaccine = vaccineComboBox.getSelectedItem().toString();
-    double doses = Integer.parseInt(txtAvailableDoses.getText());
+    long doses = Long.parseLong(txtAvailableDoses.getText());
     String cname = userAccount.getEmployee().getName();
     ecosystem.getVaccineSessionDirectory().addVaccinationSession(name, date, stime, etime, mname, aname, vaccinator, vaccine, doses, cname);
+    
+    adjustStockMinus(doses);
     JOptionPane.showMessageDialog(null, "Vaccine Session Created");
     }//GEN-LAST:event_btnSaveActionPerformed
 

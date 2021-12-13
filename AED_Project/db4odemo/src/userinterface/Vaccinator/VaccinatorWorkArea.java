@@ -107,10 +107,13 @@ public class VaccinatorWorkArea extends javax.swing.JPanel {
         tblVaccinated = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Vaccinator Work Area");
 
+        tblAppointmentFit.setBackground(new java.awt.Color(255, 255, 153));
         tblAppointmentFit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -137,6 +140,7 @@ public class VaccinatorWorkArea extends javax.swing.JPanel {
 
         jLabel3.setText("Sucessfully Vaccinated");
 
+        tblVaccinated.setBackground(new java.awt.Color(153, 255, 153));
         tblVaccinated.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -164,13 +168,9 @@ public class VaccinatorWorkArea extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(342, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(307, 307, 307))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
                     .addComponent(jScrollPane5)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,6 +180,10 @@ public class VaccinatorWorkArea extends javax.swing.JPanel {
                             .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(263, 263, 263)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,13 +210,14 @@ public class VaccinatorWorkArea extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblAppointmentFit.getSelectedRow();
         BookAppointment ba = (BookAppointment)tblAppointmentFit.getValueAt(selectedRow, 0);
-        double availableDoses = ba.getVaccinationSession().getAvailableDoses();
-        ba.getVaccinationSession().setAvailableDoses(availableDoses - 1);
-        if(ba.getBeneficiary().getStatus() == "Not Vaccinated"){
+        long availableDoses = ba.getVaccinationSession().getAvailableDoses();
+        if(ba.getBeneficiary().getStatus().equalsIgnoreCase("Not Vaccinated")){
+            ba.getVaccinationSession().setAvailableDoses(availableDoses - 1);
             ba.setAppointmentStatus("Partially Vaccinated");
             ba.getBeneficiary().setStatus("Partially Vaccinated");
         }
-        else if(ba.getBeneficiary().getStatus() == "Partially Vaccinated"){
+        else if(ba.getBeneficiary().getStatus().equalsIgnoreCase("Partially Vaccinated")){
+            ba.getVaccinationSession().setAvailableDoses(availableDoses - 1);
             ba.setAppointmentStatus("Fully Vaccinated");
             ba.getBeneficiary().setStatus("Fully Vaccinated");
         }
